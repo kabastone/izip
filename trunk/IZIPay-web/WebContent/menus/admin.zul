@@ -1,0 +1,18 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<style>
+		.nav-tabs{ background-color:#428cba; } a{ color:#ccffff; }
+		.nav-tabs:hover{ background-color:#428cba; color:white }
+		li:hover{ background-color:#428cba; color:white } a:hover{
+		background-color:#428cba; color:white;} ul{ padding-bottom:5px;
+		}
+	</style>
+	<n:ul class="nav nav-tabs">
+		<n:li>
+			<n:a href="#user" data-toggle="tab">Utilisateur</n:a>
+		</n:li>
+		<n:li>
+			<n:a href="#Entity" data-toggle="tab">Entité</n:a>
+		</n:li>
+	</n:ul>
+</zk>
