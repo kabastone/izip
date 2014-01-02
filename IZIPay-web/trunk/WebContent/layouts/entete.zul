@@ -1,0 +1,5 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<n:img src="images/Logo iziPay.png" alt="logo bannière"
+		class="col-md-2" />	
+</zk>

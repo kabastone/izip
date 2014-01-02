@@ -1,0 +1,146 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.CreerVM')">
+
+		<!-- Menu horizontale -->
+		<n:nav class="navbar navbar-default">
+			<n:div class="collapse navbar-collapse">
+
+				<n:ul class="nav navbar-nav">
+					<n:li>
+						<a zclass="a" style="color:#ccffff;">Accueil</a>
+					</n:li>
+					<n:li>
+						<a zclass="a" style="color:#ccffff;">
+							Structures
+						</a>
+					</n:li>
+				</n:ul>
+
+				<n:ul class="nav navbar-nav navbar-right">
+					<!-- sous menu du profils -->
+					<n:li class="dropdown">
+						<n:a class="dropdown-toggle"
+							data-toggle="dropdown"
+							style="color:#ccffff;background-color:#428cba">
+							Changer de Profil
+							<n:b class="caret"></n:b>
+						</n:a>
+						<n:ul class="dropdown-menu">
+							<n:li>
+								<a zclass="a">Admin</a>
+							</n:li>
+							<n:li>
+								<a zclass="a">Caissier</a>
+							</n:li>
+							<n:li>
+								<a zclass="a">Comptable</a>
+							</n:li>
+						</n:ul>
+					</n:li>
+
+					<n:li class="divider-vertical"></n:li>
+
+					<n:li class="dropdown">
+						<n:a class="dropdown-toggle"
+							data-toggle="dropdown"
+							style="color:#ccffff;background-color:#428cba">
+							Bonjour
+							<n:strong class="text-danger">
+								Kader
+							</n:strong>
+							<n:b class="caret"></n:b>
+						</n:a>
+						<n:ul class="dropdown-menu">
+							<n:li>
+								<a zclass="a">Afficher le journal</a>
+							</n:li>
+							<n:li>
+								<a zclass="a">Modifier le compte</a>
+							</n:li>
+							<n:li class="divider"></n:li>
+							<n:li>
+								<a zclass="a">Se déconnecter</a>
+							</n:li>
+						</n:ul>
+					</n:li>
+					<!-- Sous menu du compte utilisateur -->
+				</n:ul>
+			</n:div>
+		</n:nav>
+
+		<!-- contenur de la page -->
+
+		<n:center>
+			<n:h3>Création d'une STRUTURE</n:h3>
+		</n:center>
+
+		<n:form role="form">
+
+			<n:center>
+
+				<n:table width="500px" cellpadding="5">
+
+					<n:tr>
+						<n:td>Entite Actuel</n:td>
+						<n:td>
+							<listbox sclass="form-control" mold="select"
+								model="@load(vm.structures)"
+								selectedItem="@save(vm.structure.parent)">
+								<template name="model" var="str">
+									<listitem label="@load(str.libelle)"
+										value="@load(str)" />
+								</template>
+							</listbox>
+						</n:td>
+					</n:tr>
+					<n:tr>
+
+						<n:td width="100">LIBELLÉ</n:td>
+						<n:td width="150">
+							<textbox sclass="form-control"
+								value="@save(vm.structure.libelle)" />
+						</n:td>
+						<n:td width="100">TYPE</n:td>
+						<n:td width="150">
+							<listbox sclass="form-control" mold="select"
+								model="@load(vm.typeStructures)"
+								selectedItem="@save(vm.structure.type)">
+								<template name="model" var="ts">
+									<listitem label="@load(ts.code)"
+										value="@load(ts)" />
+								</template>
+							</listbox>
+						</n:td>
+					</n:tr>
+
+					<n:tr>
+						<n:td width="100">INTERNE</n:td>
+						<n:td width="150">
+							<checkbox zclass="checkbox"
+								onClick="@command('edit')" />
+						</n:td>
+						<n:td width="100">PARENT</n:td>
+						<n:td width="150">
+							<button>v</button>
+						</n:td>
+					</n:tr>
+
+					<n:tr>
+						<n:td colspan="4">
+							<n:center>
+								<button label="CREÉR STRUCTURE"
+									zclass="btn btn-primary" onClick="@command('save')" />
+							</n:center>
+						</n:td>
+					</n:tr>
+
+				</n:table>
+
+			</n:center>
+
+		</n:form>
+	</div>
+</zk>
