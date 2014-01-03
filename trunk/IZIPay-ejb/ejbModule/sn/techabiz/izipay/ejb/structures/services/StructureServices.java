@@ -14,4 +14,6 @@ public interface StructureServices {
 	public List<Structure> findAll();
 
 	public List<Structure> findByParent(Structure s);
+
+	public Structure find(Object id);
 }
