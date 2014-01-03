@@ -6,8 +6,10 @@ import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.Session;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.ListModelList;
+import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.TreeModel;
 import org.zkoss.zul.Window;
 
@@ -20,8 +22,6 @@ import sn.techabiz.izipay.services.RegistreEJB;
 import sn.techabiz.izipay.web.commons.VMOutils;
 
 public class CreerVM {
-	
-	
 
 	private TypeStructureServices typeStructureServices = (TypeStructureServices) JNDIOutils
 			.chercheEJB(RegistreEJB.TypeStructureFacade);
@@ -35,11 +35,11 @@ public class CreerVM {
 			.findAll();
 
 	private Structure structure = new Structure(), strchoisie;
-	
+
 	private TreeModel<Structure> treemodel;
-	
+
 	Boolean auto = false;
-	
+
 	public List<Structure> getStructures() {
 		return structures;
 	}
@@ -54,7 +54,7 @@ public class CreerVM {
 
 	@NotifyChange("treemodel")
 	public void setStrchoisie(Structure strchoisie) {
-		
+
 		this.strchoisie = strchoisie;
 	}
 
@@ -74,7 +74,6 @@ public class CreerVM {
 		this.structure = structure;
 	}
 
-
 	public TreeModel<Structure> getTreemodel() {
 		return treemodel;
 	}
@@ -85,12 +84,17 @@ public class CreerVM {
 
 	@Command("save")
 	public void doCreate() {
-		
+
 		structure.setInternal(auto);
-		
+		Structure parent = new Structure();
+		Session session = Executions.getCurrent().getSession();
+		parent = (Structure) session.getAttribute("parent");
+		structure.setParent(parent);
+
 		if (VMOutils.valider(structure)) {
 			structureServices.create(structure);
-			String msg = "La structure " + structure.getLibelle() + " fut ajoutée avec succès !";
+			String msg = "La structure " + structure.getLibelle()
+					+ " fut ajoutée avec succès !";
 			VMOutils.rafraichir(msg);
 		}
 
@@ -103,11 +107,12 @@ public class CreerVM {
 		else
 			auto = true;
 	}
-	
+
 	@Command("choisirParent")
-	public void choisirParent(@BindingParam("bouton") Button b){
-	Window w  = (Window) Executions.createComponents("/pages/structures/structure_picker.zul", b.getFellow("divCreerStructure"), null);
-	w.doModal();
+	public void choisirParent(@BindingParam("bouton") Button b) {
+		Window w = (Window) Executions.createComponents(
+				"/pages/structures/structure_picker.zul",
+				b.getFellow("divCreerStructure"), null);
+		w.doModal();
 	}
 }
- 

@@ -1,9 +1,13 @@
 <?page title="" contentType="text/html;charset=UTF-8"?>
 <zk>
-	<window title="Choisir un parent" border="normal" width="500px" height="500px"
-		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.StructurePicker')" >
-		<tree>
-			
+	<window title="Choisir un parent" border="normal" width="500px"
+		height="500px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.StructurePicker')" closable="true">
+		<vbox hflex="1" vflex="1">
+		<tree selectedItem="@save(vm.selected)">
+
 		</tree>
+		<button onClick="@command('save')">Valider</button>
+		</vbox>
 	</window>
 </zk>
