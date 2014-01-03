@@ -1,6 +1,9 @@
 <?page title="" contentType="text/html;charset=UTF-8"?>
 <zk>
-	<window title="" border="normal" width="500px" height="500px">
-		
+	<window title="Choisir un parent" border="normal" width="500px" height="500px"
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.StructurePicker')" >
+		<tree>
+			
+		</tree>
 	</window>
 </zk>

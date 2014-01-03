@@ -2,11 +2,14 @@ package sn.techabiz.izipay.web.structures.vm;
 
 import java.util.List;
 
+import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zul.Button;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.TreeModel;
+import org.zkoss.zul.Window;
 
 import sn.techabiz.izipay.ejb.structures.entities.Structure;
 import sn.techabiz.izipay.ejb.structures.entities.TypeStructure;
@@ -17,6 +20,8 @@ import sn.techabiz.izipay.services.RegistreEJB;
 import sn.techabiz.izipay.web.commons.VMOutils;
 
 public class CreerVM {
+	
+	
 
 	private TypeStructureServices typeStructureServices = (TypeStructureServices) JNDIOutils
 			.chercheEJB(RegistreEJB.TypeStructureFacade);
@@ -99,8 +104,10 @@ public class CreerVM {
 			auto = true;
 	}
 	
-	@Command("popup")
-	public void doPopup(){
-		
+	@Command("choisirParent")
+	public void choisirParent(@BindingParam("bouton") Button b){
+	Window w  = (Window) Executions.createComponents("/pages/structures/structure_picker.zul", b.getFellow("divCreerStructure"), null);
+	w.doModal();
 	}
 }
+ 

@@ -2,7 +2,8 @@
 <zk xmlns:n="native">
 
 	<div apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.CreerVM')">
+		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.CreerVM')"
+		id="divCreerStructure">
 
 		<!-- Menu horizontale -->
 		<n:nav class="navbar navbar-default">
@@ -124,7 +125,7 @@
 						</n:td>
 						<n:td width="100">PARENT</n:td>
 						<n:td width="150">
-							<button onClick="@command('popup')">v</button>
+							<button onClick="@command('choisirParent', bouton=self)">v</button>
 						</n:td>
 					</n:tr>
 
