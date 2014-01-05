@@ -1,33 +1,62 @@
 <?page title="" contentType="text/html;charset=UTF-8"?>
 <zk xmlns:n="native">
-	<div>
-		<vbox height="500px">
-			<n:nav class="navbar-collapse">
-				<n:ul class="nav nav-pills nav-stacked">
-					<n:li>
-						<a zclass="a">Créer</a>
-					</n:li>
-					<n:li>
-						<a zclass="a">Lister</a>
-					</n:li>
-					<n:li>
-						<a zclass="a">Modifier</a>
-					</n:li>
-					<n:li class="dropdown">
-						<n:a class="dropdown-toggle"
-							data-toggle="dropdown">
-							Exemple arbre
-							<n:span
-								class="glyphicon glyphicon-chevron-down">
-							</n:span>
-						</n:a>
-						<n:ul class="dropdown-menu">
-							<n:li><a>sous menu 1</a></n:li>
-							<n:li><a>sous menu 2</a></n:li>
-						</n:ul>
-					</n:li>
-				</n:ul>
-			</n:nav>
-		</vbox>
-	</div>
+	<n:nav class="navbar navbar-default">
+		<n:div class="collapse navbar-collapse">
+
+			<n:ul class="nav navbar-nav">
+				<n:li>
+					<a zclass="a" style="color:#ccffff;">Accueil</a>
+				</n:li>
+				<n:li>
+					<a zclass="a" style="color:#ccffff;">Structures</a>
+				</n:li>
+			</n:ul>
+
+			<n:ul class="nav navbar-nav navbar-right">
+				<!-- sous menu du profils -->
+				<n:li class="dropdown">
+					<n:a class="dropdown-toggle" data-toggle="dropdown"
+						style="color:#ccffff;background-color:#428cba">
+						Changer de Profil
+						<n:b class="caret"></n:b>
+					</n:a>
+					<n:ul class="dropdown-menu">
+						<n:li>
+							<a zclass="a">Admin</a>
+						</n:li>
+						<n:li>
+							<a zclass="a">Caissier</a>
+						</n:li>
+						<n:li>
+							<a zclass="a">Comptable</a>
+						</n:li>
+					</n:ul>
+				</n:li>
+
+				<n:li class="divider-vertical"></n:li>
+
+				<n:li class="dropdown">
+					<n:a class="dropdown-toggle" data-toggle="dropdown"
+						style="color:#ccffff;background-color:#428cba">
+						Bonjour
+						<n:strong class="text-danger">Kader</n:strong>
+						<n:b class="caret"></n:b>
+					</n:a>
+					<n:ul class="dropdown-menu">
+						<n:li>
+							<a zclass="a">Afficher le journal</a>
+						</n:li>
+						<n:li>
+							<a zclass="a">Modifier le compte</a>
+						</n:li>
+						<n:li class="divider"></n:li>
+						<n:li>
+							<a zclass="a">Se déconnecter</a>
+						</n:li>
+					</n:ul>
+				</n:li>
+				<!-- Sous menu du compte utilisateur -->
+			</n:ul>
+		</n:div>
+	</n:nav>
 </zk>

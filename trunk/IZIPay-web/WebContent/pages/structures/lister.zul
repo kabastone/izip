@@ -1,6 +1,8 @@
 <?page title="" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window title="" border="normal">
-New Content Here!
-</window>
+
+	<hlayout id="p">
+		<include src="/pages/structures/menu.zul"/>
+	</hlayout>
+	
 </zk>

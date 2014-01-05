@@ -4,10 +4,10 @@
 		height="500px" apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.StructurePicker')" closable="true">
 		<vbox hflex="1" vflex="1">
-		<tree selectedItem="@save(vm.selected)">
+		<tree selectedItem="@save(vm.selected, before='save')">
 
 		</tree>
-		<button onClick="@command('save')">Valider</button>
+		<button onClick="@command('save') @global-command('dlgClose', parentID=vm.selected)">Valider</button>
 		</vbox>
 	</window>
 </zk>

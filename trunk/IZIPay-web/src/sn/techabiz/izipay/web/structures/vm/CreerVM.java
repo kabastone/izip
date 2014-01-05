@@ -4,13 +4,11 @@ import java.util.List;
 
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
-import org.zkoss.zul.Button;
-import org.zkoss.zul.ListModelList;
-import org.zkoss.zul.Messagebox;
-import org.zkoss.zul.TreeModel;
 import org.zkoss.zul.Window;
 
 import sn.techabiz.izipay.ejb.structures.entities.Structure;
@@ -36,7 +34,7 @@ public class CreerVM {
 
 	private Structure structure = new Structure(), strchoisie;
 
-	private TreeModel<Structure> treemodel;
+	private Long parentID;
 
 	Boolean auto = false;
 
@@ -74,14 +72,6 @@ public class CreerVM {
 		this.structure = structure;
 	}
 
-	public TreeModel<Structure> getTreemodel() {
-		return treemodel;
-	}
-
-	public void setTreemodel(TreeModel<Structure> treemodel) {
-		this.treemodel = treemodel;
-	}
-
 	@Command("save")
 	public void doCreate() {
 
@@ -108,11 +98,17 @@ public class CreerVM {
 			auto = true;
 	}
 
-	@Command("choisirParent")
-	public void choisirParent(@BindingParam("bouton") Button b) {
-		Window w = (Window) Executions.createComponents(
-				"/pages/structures/structure_picker.zul",
-				b.getFellow("divCreerStructure"), null);
+	@Command
+	public void open() {
+
+		Window w = (Window) Executions.createComponents("/pages/structures/structure_picker.zul",
+				null,null);
 		w.doModal();
+	}
+	
+	@GlobalCommand("dlgClose") @NotifyChange("parentID")
+	public void dlgClose(@BindingParam("parentID") Long parent){
+		parentID = parent;
+		Messagebox.show(parent + "");
 	}
 }

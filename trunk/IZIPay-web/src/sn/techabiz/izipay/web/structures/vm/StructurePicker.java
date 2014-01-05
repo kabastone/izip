@@ -6,18 +6,19 @@ import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
+import org.zkoss.bind.annotation.DependsOn;
+import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.select.Selectors;
 import org.zkoss.zk.ui.select.annotation.Wire;
-import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Tree;
 import org.zkoss.zul.Treechildren;
 import org.zkoss.zul.Treeitem;
+import org.zkoss.zul.Window;
 
 import sn.techabiz.izipay.ejb.structures.entities.Structure;
 import sn.techabiz.izipay.ejb.structures.services.StructureServices;
@@ -34,13 +35,12 @@ public class StructurePicker implements EventListener<Event> {
 
 	// A remplacer apres par lid de la structure de lutilisaateur cnnecte
 	Long currentScope = 1l;
-	
+
 	Component rootComponent;
 
 	@AfterCompose
 	public void init(@ContextParam(ContextType.VIEW) Component view) {
-		
-		
+
 		Selectors.wireComponents(view, this, false);
 
 		Structure root = new Structure();
@@ -67,12 +67,9 @@ public class StructurePicker implements EventListener<Event> {
 	}
 
 	@Command("save")
-	public void valider() {
-		Structure parent = new Structure();
-		parent = structureServices.find(selected);
-		
-		Messagebox.show(parent.getLibelle() + " sélectionné");
-
+	public void save(@ContextParam(ContextType.VIEW) Window comp) {
+		Messagebox.show(selected + "");
+		comp.detach();
 	}
 
 	@Override
@@ -83,7 +80,7 @@ public class StructurePicker implements EventListener<Event> {
 				.findByParent(structureServices.find((Long) treeitem.getValue())), lst_vir;
 
 		Treechildren tc = treeitem.getTreechildren();
-		
+
 		tc.getChildren().clear();
 
 		for (Structure t : lst_str) {
