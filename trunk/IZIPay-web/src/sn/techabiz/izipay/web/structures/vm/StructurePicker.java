@@ -1,5 +1,7 @@
 package sn.techabiz.izipay.web.structures.vm;
 
+import java.util.List;
+
 import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
@@ -22,7 +24,7 @@ import sn.techabiz.izipay.ejb.structures.services.StructureServices;
 import sn.techabiz.izipay.services.JNDIOutils;
 import sn.techabiz.izipay.services.RegistreEJB;
 
-public class StructurePicker {
+public class StructurePicker implements EventListener<Event> {
 
 	@Wire("tree")
 	Tree tree;
@@ -32,13 +34,17 @@ public class StructurePicker {
 
 	// A remplacer apres par lid de la structure de lutilisaateur cnnecte
 	Long currentScope = 1l;
+	
+	Component rootComponent;
 
 	@AfterCompose
 	public void init(@ContextParam(ContextType.VIEW) Component view) {
+		
+		
 		Selectors.wireComponents(view, this, false);
 
 		Structure root = new Structure();
-		root = structureServices.find(7l);
+		root = structureServices.find(currentScope);
 
 		Treechildren treechildren = new Treechildren();
 		treechildren.setParent(tree);
@@ -47,48 +53,8 @@ public class StructurePicker {
 		treeitem.setOpen(false);
 		treeitem.setParent(treechildren);
 
-		if (root.getParent() != null) {
-
-			if (root.getParent().getVirtual().FALSE) {
-				Treechildren treechildren2 = new Treechildren();
-				treechildren2.setParent(treeitem);
-				treeitem.addEventListener(Events.ON_OPEN,
-						createNode(root.getParent(), treechildren2));
-
-			} else {
-				Treechildren treechildren2 = new Treechildren();
-				treechildren2.setParent(treeitem);
-				treeitem.addEventListener(Events.ON_OPEN,
-						createNode(root.getParent().getParent(), treechildren2));
-			}
-		}
-
-	}
-
-	public EventListener<Event> createNode(final Structure structure,
-			final Treechildren item) {
-
-		EventListener<Event> evt = new EventListener<Event>() {
-
-			@Override
-			public void onEvent(Event arg0) throws Exception {
-				if (item.getChildren().isEmpty()) {
-					final Treeitem ti = new Treeitem(structure.getLibelle(),
-							structure.getId());
-					ti.setOpen(false);
-					ti.setParent(item);
-
-					if (structure.getParent() != null) {
-						final Treechildren tc = new Treechildren();
-						tc.setParent(ti);
-						ti.addEventListener(Events.ON_OPEN,
-								createNode(structure.getParent(), tc));
-					}
-				}
-			}
-
-		};
-		return evt;
+		treeitem.appendChild(new Treechildren());
+		treeitem.addEventListener(Events.ON_OPEN, this);
 
 	}
 
@@ -104,10 +70,46 @@ public class StructurePicker {
 	public void valider() {
 		Structure parent = new Structure();
 		parent = structureServices.find(selected);
-		Session session = Executions.getCurrent().getSession();
-		session.setAttribute("parent", parent);
+		
 		Messagebox.show(parent.getLibelle() + " sélectionné");
 
 	}
 
+	@Override
+	public void onEvent(Event event) throws Exception {
+		Treeitem treeitem = (Treeitem) event.getTarget(), ti;
+
+		List<Structure> lst_str = structureServices
+				.findByParent(structureServices.find((Long) treeitem.getValue())), lst_vir;
+
+		Treechildren tc = treeitem.getTreechildren();
+		
+		tc.getChildren().clear();
+
+		for (Structure t : lst_str) {
+			if (t.getVirtual()) {
+				lst_vir = structureServices.findByParent(structureServices
+						.find(t.getId()));
+				for (Structure tv : lst_vir) {
+					ti = new Treeitem();
+					ti.appendChild(new Treechildren());
+					ti.setValue(tv.getId());
+					ti.setLabel(tv.getLibelle());
+					tc.appendChild(ti);
+					ti.addEventListener(Events.ON_OPEN, this);
+					ti.setOpen(false);
+				}
+			} else {
+				ti = new Treeitem();
+				ti.appendChild(new Treechildren());
+				ti.setValue(t.getId());
+				ti.setLabel(t.getLibelle());
+				tc.appendChild(ti);
+				ti.addEventListener(Events.ON_OPEN, this);
+				ti.setOpen(false);
+			}
+		}
+
+		event.getTarget().appendChild(tc);
+	}
 }
