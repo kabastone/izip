@@ -2,6 +2,7 @@ package sn.techabiz.izipay.ejb.structures.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "STRUCTURES")
@@ -53,7 +55,7 @@ public class Structure implements Serializable {
 		this.libelle = libelle;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name = "STRUCT_PARENT_ID")
 	public Structure getParent() {
 		return parent;
