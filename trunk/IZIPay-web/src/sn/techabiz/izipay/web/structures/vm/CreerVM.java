@@ -7,7 +7,7 @@ import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.Session;
+import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
 import sn.techabiz.izipay.ejb.structures.entities.Structure;
@@ -32,6 +32,10 @@ public class CreerVM {
 			.findAll();
 
 	private Structure structure = new Structure(), strchoisie;
+
+	private Long parentID;
+	private Long currentscope = 1l;
+	private long id = 0l;
 
 	Boolean auto = false;
 
@@ -71,18 +75,56 @@ public class CreerVM {
 
 	@Command("save")
 	public void doCreate() {
+		Structure currentStructure = new Structure();
+		currentStructure = structureServices.find(currentscope);
 
 		structure.setInternal(auto);
 		Structure parent = new Structure();
-		Session session = Executions.getCurrent().getSession();
-		parent = (Structure) session.getAttribute("parent");
-		structure.setParent(parent);
+		if (parentID != null) {
+			parent = structureServices.find(parentID);
+			if (parent.getType().getRang() >= structure.getType().getRang()) {
+				Messagebox.show(" parent structure incorrect");
 
-		if (VMOutils.valider(structure)) {
-			structureServices.create(structure);
-			String msg = "La structure " + structure.getLibelle()
-					+ " fut ajoutée avec succès !";
-			VMOutils.rafraichir(msg);
+			} else if (parent.getType().getRang() == structure.getType()
+					.getRang() - 1) {
+				// structure.setParent(parent);
+				structure.setVirtual(false);
+				if (VMOutils.valider(structure)) {
+					structureServices.create(structure);
+					String msg = structure.getLibelle() + " créée";
+					VMOutils.rafraichir(msg);
+				}
+
+			} else if (structure.getType().getCode().equalsIgnoreCase("AGENCE")
+					&& parent.getType().getCode().equalsIgnoreCase("OPERATEUR")) {
+
+				Structure distributeur = new Structure();
+				distributeur.setLibelle("Dist virt");
+				distributeur.setVirtual(true);
+				distributeur.setType(structure.getType().getParent());
+				distributeur.setInternal(false);
+				distributeur.setParent(parent);
+				
+
+				structure.setVirtual(false);
+				
+				if (VMOutils.valider(structure)
+						&& VMOutils.valider(distributeur)) {
+
+					
+					structureServices.create(structure);
+					structureServices.create(distributeur);
+					structure.setParent(distributeur);
+					structureServices.edit(structure);
+					String msg = structure.getLibelle() + " créée";
+					VMOutils.rafraichir(msg);
+				}
+			} else {
+				Messagebox.show("parent structure incorrect");
+			}
+
+		} else {
+			Messagebox.show("Veuillez choisir un parent");
 		}
 
 	}
@@ -98,13 +140,17 @@ public class CreerVM {
 	@Command
 	public void open() {
 
-		Window w = (Window) Executions.createComponents("/pages/structures/structure_picker.zul",
-				null,null);
+		Window w = (Window) Executions.createComponents(
+				"/pages/structures/structure_picker.zul", null, null);
 		w.doModal();
 	}
-	
-	@GlobalCommand("dlgClose") @NotifyChange("parentID")
-	public void dlgClose(@BindingParam("parentID") Long parent){
+
+	@GlobalCommand("dlgClose")
+	@NotifyChange("parentID")
+	public void dlgClose(@BindingParam("parentID") Long parent) {
+		parentID = parent;
+
 		structure.setParent(structureServices.find(parent));
+
 	}
 }
