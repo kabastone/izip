@@ -6,7 +6,6 @@ import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zul.Window;
@@ -33,8 +32,6 @@ public class CreerVM {
 			.findAll();
 
 	private Structure structure = new Structure(), strchoisie;
-
-	private Long parentID;
 
 	Boolean auto = false;
 
@@ -108,7 +105,6 @@ public class CreerVM {
 	
 	@GlobalCommand("dlgClose") @NotifyChange("parentID")
 	public void dlgClose(@BindingParam("parentID") Long parent){
-		parentID = parent;
-		Messagebox.show(parent + "");
+		structure.setParent(structureServices.find(parent));
 	}
 }

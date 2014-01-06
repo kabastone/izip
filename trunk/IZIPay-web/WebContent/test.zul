@@ -16,7 +16,7 @@
 		<east border="none" size="10%"></east>
 
 		<center>
-			<include src="/pages/structures/creer.zul" />
+			<include src="/pages/structures/lister.zul" />
 		</center>
 
 		<south border="none" size="10%">

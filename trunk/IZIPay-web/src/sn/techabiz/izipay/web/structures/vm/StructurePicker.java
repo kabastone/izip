@@ -42,7 +42,6 @@ public class StructurePicker {
 
 	@Command("save")
 	public void save(@ContextParam(ContextType.VIEW) Window comp) {
-		Messagebox.show(selected + "");
 		comp.detach();
 	}
 
