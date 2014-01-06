@@ -6,7 +6,7 @@
 		id="divCreerStructure">
 
 		<!-- Menu horizontale -->
-	<include src="/pages/structures/menu.zul"/>
+		<include src="/pages/structures/menu.zul" />
 
 		<!-- contenur de la page -->
 
@@ -61,7 +61,9 @@
 						</n:td>
 						<n:td width="100">PARENT</n:td>
 						<n:td width="150">
-							<button onClick="@command('open')">v</button>
+							<button onClick="@command('open')">
+								v
+							</button>
 						</n:td>
 					</n:tr>
 

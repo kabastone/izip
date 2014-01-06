@@ -3,77 +3,63 @@
 	<window apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.ListerVM')">
 		<include src="/pages/structures/menu.zul" />
-		<vlayout>
+
+		<n:center>
+			<n:h3>Création d'une STRUTURE</n:h3>
+		</n:center>
+
+		<n:form role="form">
+
 			<n:center>
-				<n:h3>Création d'une STRUTURE</n:h3>
+
+				<n:table width="500px" cellpadding="5">
+					
+					<n:tr>
+						<n:td width="100">LIBELLÉ</n:td>
+						<n:td width="150">
+							<textbox sclass="form-control"
+								value="@save(vm.structure.libelle)" />
+						</n:td>
+						<n:td width="100">TYPE</n:td>
+						<n:td width="150">
+							<listbox sclass="form-control" mold="select"
+								model="@load(vm.typeStructures)"
+								selectedItem="@save(vm.structure.type)">
+								<template name="model" var="ts">
+									<listitem label="@load(ts.code)"
+										value="@load(ts)" />
+								</template>
+							</listbox>
+						</n:td>
+					</n:tr>
+
+					<n:tr>
+						<n:td width="100">INTERNE</n:td>
+						<n:td width="150">
+							<checkbox zclass="checkbox"
+								onClick="@command('edit')" />
+						</n:td>
+						<n:td width="100">PARENT</n:td>
+						<n:td width="150">
+							<button onClick="@command('open')">
+								v
+							</button>
+						</n:td>
+					</n:tr>
+
+					<n:tr>
+						<n:td colspan="4">
+							<n:center>
+								<button label="CREÉR STRUCTURE"
+									zclass="btn btn-primary" onClick="@command('save')" />
+							</n:center>
+						</n:td>
+					</n:tr>
+
+				</n:table>
+
 			</n:center>
-			<hbox>
-				<tree hflex="min" selectedItem="@bind(vm.selected)" />
 
-
-				<n:form role="form">
-
-					<n:center>
-
-						<n:table width="500px" cellpadding="5"
-							cellspacing="5">
-
-							<n:tr>
-								<n:td width="100">Libellé</n:td>
-								<n:td width="150">
-									<textbox sclass="form-control"
-										value="@bind(vm.structure.libelle)" />
-								</n:td>
-								<n:td width="100">Type</n:td>
-								<n:td width="150">
-									<combobox height="30px"
-										model="@load(vm.typeStructures)"
-										selectedItem="@bind(vm.structure.type)"
-										value="@load(vm.structure.type.code)">
-										<template name="model"
-											var="ts">
-											<comboitem
-												label="@load(ts.code)" value="@load(ts)" />
-										</template>
-									</combobox>
-								</n:td>
-							</n:tr>
-
-							<n:tr>
-								<n:td width="100">Interne</n:td>
-								<n:td width="150">
-									<checkbox zclass="checkbox"
-										onClick="@command('edit')"
-										checked="@bind(vm.structure.internal)" />
-								</n:td>
-								<n:td width="100">Parent</n:td>
-								<n:td width="150">
-									<button
-										onClick="@command('open')">
-										v
-									</button>
-									<label value="@load(vm.structure.parent.libelle)"/>
-								</n:td>
-							</n:tr>
-
-							<n:tr>
-								<n:td colspan="4">
-									<n:center>
-										<button
-											label="MODIFIER STRUCTURE" zclass="btn btn-primary"
-											onClick="@command('save')" />
-									</n:center>
-								</n:td>
-							</n:tr>
-
-						</n:table>
-
-					</n:center>
-
-				</n:form>
-
-
-			</hbox>
-		</vlayout>
+		</n:form>
 	</window>
 </zk>
