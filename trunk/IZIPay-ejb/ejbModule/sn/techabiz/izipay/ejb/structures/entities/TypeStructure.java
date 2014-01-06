@@ -21,17 +21,17 @@ public class TypeStructure implements Serializable, Comparable<TypeStructure> {
 
 	@NotNull
 	private String code;
-	
-	private String 	description;
-	
+
+	private String description;
+
 	private Integer rang;
-	
+
 	private Boolean autonome, virtualAllowed;
 	@Valid
 	private TypeStructure parent;
 
 	@Id
-	@Column(name = "TS_CODE",length = 15)
+	@Column(name = "TS_CODE", length = 15)
 	public String getCode() {
 		return code;
 	}
@@ -49,6 +49,7 @@ public class TypeStructure implements Serializable, Comparable<TypeStructure> {
 		this.description = description;
 	}
 
+	@Column(name = "TS_RANG")
 	public Integer getRang() {
 		return rang;
 	}
