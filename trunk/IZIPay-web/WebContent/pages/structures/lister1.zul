@@ -11,7 +11,7 @@
 					<tree width="150px" />
 					<button zclass="btn-primary">modifier</button>
 				</vbox>
-				<include src="/pages/structures/agence.zul" />
+				<include src="/pages/structures/str/operateur.zul" />
 			</hbox>
 		</vbox>
 	</window>

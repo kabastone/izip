@@ -2,7 +2,7 @@
 <div>
 	<hbox width="1024px">
 		<hbox width="512px">
-			<image src="images/Logo iziPay.png" width="150px" />
+			<image src="images/globe.png" width="100px" />
 		</hbox>
 		
 		<hbox width="256px" align="center" vflex="1" pack="end">

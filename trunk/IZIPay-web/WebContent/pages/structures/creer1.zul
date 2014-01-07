@@ -3,8 +3,9 @@
 	<window apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.CreerVM')">
 		<vbox>
-			<n:h1>Création d'une structure</n:h1>
-
+			<n:center>
+				<n:h1>Création d'une structure</n:h1>
+			</n:center>
 			<grid sclass="table">
 				<columns>
 					<column />
@@ -16,9 +17,11 @@
 					<row>
 						<label>Type</label>
 						<combobox focus="true" readonly="true"
-							model="@load(vm.typeStructures)" selectedItem="@save(vm.structure.type)">
+							model="@load(vm.typeStructures)"
+							selectedItem="@save(vm.structure.type)">
 							<template name="model" var="ts">
-								<comboitem label="@load(ts.code)" value="@load(ts)"/>
+								<comboitem label="@load(ts.code)"
+									value="@load(ts)" />
 							</template>
 						</combobox>
 						<label>Libellé</label>
@@ -30,7 +33,8 @@
 						<label>Parent</label>
 						<hbox>
 							<button
-								iconSclass="glyphicon glyphicon-chevron-down" onClick="@command('open')">
+								iconSclass="glyphicon glyphicon-chevron-down"
+								onClick="@command('open')">
 							</button>
 							<label>plop</label>
 						</hbox>
