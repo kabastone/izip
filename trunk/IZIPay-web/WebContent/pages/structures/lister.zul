@@ -7,59 +7,60 @@
 		<n:center>
 			<n:h3>Création d'une STRUTURE</n:h3>
 		</n:center>
+		<n:div class="row">
 
-		<n:form role="form">
 
+			<n:div class="col-md-offset-1 col-md-2">
+				<tree selectedItem="@bind(vm.selected)"></tree>
+			</n:div>
+
+			<n:div class="col-md-8">
+				<n:form role="form">
+
+					<n:table cellpadding="5">
+
+						<n:tr>
+							<n:td width="100">LIBELLÉ</n:td>
+							<n:td width="150">
+								<textbox sclass="form-control"
+									value="@bind(vm.structure.libelle)" />
+							</n:td>
+							<n:td width="100">TYPE</n:td>
+							<n:td width="150">
+								<listbox sclass="form-control"
+									mold="select" model="@load(vm.typeStructures)"
+									selectedItem="@bind(vm.structure.type)">
+									<template name="model" var="ts">
+										<listitem label="@load(ts.code)"
+											value="@load(ts)" />
+									</template>
+								</listbox>
+							</n:td>
+						</n:tr>
+
+						<n:tr>
+							<n:td width="100">INTERNE</n:td>
+							<n:td width="150">
+								<checkbox zclass="checkbox"
+									onClick="@command('edit')" />
+							</n:td>
+							<n:td width="100">PARENT</n:td>
+							<n:td width="150">
+								<button onClick="@command('open')">
+									v
+								</button>
+							</n:td>
+						</n:tr>
+
+					</n:table>
+
+				</n:form>
+
+			</n:div>
 			<n:center>
-
-				<n:table width="500px" cellpadding="5">
-					
-					<n:tr>
-						<n:td width="100">LIBELLÉ</n:td>
-						<n:td width="150">
-							<textbox sclass="form-control"
-								value="@save(vm.structure.libelle)" />
-						</n:td>
-						<n:td width="100">TYPE</n:td>
-						<n:td width="150">
-							<listbox sclass="form-control" mold="select"
-								model="@load(vm.typeStructures)"
-								selectedItem="@save(vm.structure.type)">
-								<template name="model" var="ts">
-									<listitem label="@load(ts.code)"
-										value="@load(ts)" />
-								</template>
-							</listbox>
-						</n:td>
-					</n:tr>
-
-					<n:tr>
-						<n:td width="100">INTERNE</n:td>
-						<n:td width="150">
-							<checkbox zclass="checkbox"
-								onClick="@command('edit')" />
-						</n:td>
-						<n:td width="100">PARENT</n:td>
-						<n:td width="150">
-							<button onClick="@command('open')">
-								v
-							</button>
-						</n:td>
-					</n:tr>
-
-					<n:tr>
-						<n:td colspan="4">
-							<n:center>
-								<button label="CREÉR STRUCTURE"
-									zclass="btn btn-primary" onClick="@command('save')" />
-							</n:center>
-						</n:td>
-					</n:tr>
-
-				</n:table>
-
+				<button label="CREÉR STRUCTURE" zclass="btn btn-primary"
+					onClick="@command('save')" />
 			</n:center>
-
-		</n:form>
+		</n:div>
 	</window>
 </zk>
