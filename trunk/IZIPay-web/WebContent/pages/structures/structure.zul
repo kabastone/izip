@@ -1,0 +1,30 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window>
+		<hbox width="1024px">
+			<tree width="128px" vflex="1">
+				<treechildren>
+					<treeitem label="Créer"></treeitem>
+					<treeitem label="Lister"></treeitem>
+					<treeitem label="Modifier"></treeitem>
+				</treechildren>
+			</tree>
+			<groupbox width="896px">
+				<tabbox>
+					<tabs>
+						<tab label="Structure"/>
+						<tab label="Utilisateur"/>
+					</tabs>
+					<tabpanels>
+						<tabpanel height="600px">
+							<include src="/pages/structures/creer1.zul"/>
+						</tabpanel>
+						<tabpanel height="600px">
+							<include src="/pages/structures/lister1.zul"/>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</groupbox>
+		</hbox>
+	</window>
+</zk>

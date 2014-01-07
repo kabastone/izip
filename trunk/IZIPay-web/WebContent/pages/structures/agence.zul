@@ -1,0 +1,79 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+
+	<label zclass="text-lg">Édition Agence</label>
+	<vbox>
+		<label>Propriété Générales</label>
+		<hbox>
+			<grid height="100px">
+				<columns>
+					<column />
+					<column />
+					<column />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<label>Code</label>
+						<textbox></textbox>
+						<label>Valeur</label>
+						<textbox></textbox>
+					</row>
+				</rows>
+			</grid>
+			<button iconSclass="z-icon-plus" zclass="btn-success"></button>
+		</hbox>
+		<label>Propriété Comptable</label>
+		<hbox>
+			<grid height="100px">
+				<columns>
+					<column />
+					<column />
+					<column />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<label>Code</label>
+						<textbox></textbox>
+						<label>Valeur</label>
+						<textbox></textbox>
+					</row>
+				</rows>
+			</grid>
+			<button iconSclass="z-icon-plus" zclass="btn-success"></button>
+		</hbox>
+
+		<label>Info de la structure</label>
+		<grid sclass="table">
+			<columns>
+				<column />
+				<column />
+				<column />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label>Type</label>
+					<combobox focus="true" readonly="true"></combobox>
+					<label>Libellé</label>
+					<textbox></textbox>
+				</row>
+				<row>
+					<label>Interne</label>
+					<checkbox></checkbox>
+					<label>Parent</label>
+					<hbox>
+						<button
+							iconSclass="glyphicon glyphicon-chevron-down">
+						</button>
+						<label>plop</label>
+					</hbox>
+				</row>
+			</rows>
+		</grid>
+
+		<button zclass="btn btn-primary">Valider</button>
+	</vbox>
+
+</zk>

@@ -35,8 +35,6 @@ public class CreerVM {
 
 	private Long parentID;
 	private Long currentscope = 1l;
-	private long id = 0l;
-
 	Boolean auto = false;
 
 	public List<Structure> getStructures() {
@@ -75,8 +73,8 @@ public class CreerVM {
 
 	@Command("save")
 	public void doCreate() {
-		Structure currentStructure = new Structure();
-		currentStructure = structureServices.find(currentscope);
+		new Structure();
+		structureServices.find(currentscope);
 
 		structure.setInternal(auto);
 		Structure parent = new Structure();
@@ -143,7 +141,7 @@ public class CreerVM {
 
 		Window w = (Window) Executions.createComponents(
 				"/pages/structures/structure_picker.zul", null, null);
-		w.doModal();
+		w.doHighlighted();
 	}
 
 	@GlobalCommand("dlgClose")

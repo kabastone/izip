@@ -1,5 +1,38 @@
 <?page title="" contentType="text/html;charset=UTF-8"?>
-<zk xmlns:n="native">
-	<n:img src="images/Logo iziPay.png" alt="logo bannière"
-		class="col-md-2" />	
-</zk>
+<div>
+	<hbox width="1024px">
+		<hbox width="512px">
+			<image src="images/Logo iziPay.png" width="150px" />
+		</hbox>
+		
+		<hbox width="256px" align="center" vflex="1" pack="end">
+			<a label="Profils" zclass="text-lg"
+				popup="profil, position=after_end, type=toggle">
+			</a>
+			(<label zclass="text-danger">Admin</label>)
+		</hbox>
+		
+		<hbox width="256px" align="center" vflex="1" pack="end">
+			<a label="Alioune Johnson" zclass="text-lg"
+				popup="setting, position=after_end, type=toggle">
+			</a>
+		</hbox>
+		
+	</hbox>
+	<popup id="profil">
+		<vlayout>
+			<a>Admin</a>
+			<a>Comptable</a>
+		</vlayout>
+	</popup>
+
+	<popup id="setting">
+		<vlayout>
+			<a>Modifier</a>
+			<a>Journal</a>
+			<separator />
+			<a>Déconnexion</a>
+		</vlayout>
+	</popup>
+
+</div>

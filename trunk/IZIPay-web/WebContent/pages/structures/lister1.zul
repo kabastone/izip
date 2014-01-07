@@ -1,0 +1,18 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.ListerVM')">
+		<vbox>
+			<n:center>
+				<n:h1>Liste des structures</n:h1>
+			</n:center>
+			<hbox>
+				<vbox>
+					<tree width="150px" />
+					<button zclass="btn-primary">modifier</button>
+				</vbox>
+				<include src="/pages/structures/agence.zul" />
+			</hbox>
+		</vbox>
+	</window>
+</zk>
