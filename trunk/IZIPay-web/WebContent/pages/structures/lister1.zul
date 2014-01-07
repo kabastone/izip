@@ -4,7 +4,7 @@
 		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.ListerVM')">
 		<vbox>
 			<n:center>
-				<n:h1>Liste des structures</n:h1>
+				<n:h3 class="text-primary">Liste des structures</n:h3>
 			</n:center>
 			<hbox>
 				<vbox>

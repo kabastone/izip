@@ -4,7 +4,7 @@
 		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.CreerVM')">
 		<vbox>
 			<n:center>
-				<n:h1>Création d'une structure</n:h1>
+				<n:h3 class="text-primary">Création d'une structure</n:h3>
 			</n:center>
 			<grid sclass="table">
 				<columns>
