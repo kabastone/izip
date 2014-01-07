@@ -8,10 +8,14 @@
 			</n:center>
 			<hbox>
 				<vbox>
-					<tree width="150px" />
-					<button zclass="btn-primary">modifier</button>
+					<tree width="150px"
+						selectedItem="@save(vm.selected)" />
+					<button zclass="btn-primary"
+						onClick="@command('changeUrl') @global-command('updateSelected', selected=vm.selected)">
+						modifier
+					</button>
 				</vbox>
-				<include src="/pages/structures/str/operateur.zul" />
+				<include src="@load(vm.url)" />
 			</hbox>
 		</vbox>
 	</window>

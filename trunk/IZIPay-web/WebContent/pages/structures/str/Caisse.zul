@@ -21,7 +21,7 @@
 						</row>
 					</rows>
 				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn-success"></button>
+				<button iconSclass="z-icon-plus" zclass="btn-primary"></button>
 			</hbox>
 
 			<label zclass="text-lg">Information de la structure</label>

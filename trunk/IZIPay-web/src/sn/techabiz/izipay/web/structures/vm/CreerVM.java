@@ -107,12 +107,7 @@ public class CreerVM {
 				structure.setVirtual(false);
 				
 				if (VMOutils.valider(structure)
-						&& VMOutils.valider(distributeur)) {
-
-					
-
-					
-					
+						&& VMOutils.valider(distributeur)) {					
 					structure.setParent(distributeur);
 					structureServices.edit(structure);
 					String msg = structure.getLibelle() + " créée";

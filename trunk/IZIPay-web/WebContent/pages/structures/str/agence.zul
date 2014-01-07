@@ -1,56 +1,66 @@
 <?page contentType="text/html;charset=UTF-8"?>
 <zk xmlns:n="native">
-	<div>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.ModifierAgenceVM')">
 		<n:h3>Édition Agence</n:h3>
 		<vbox>
 			<label>Plage horaire</label>
 			<hbox>
-				<grid height="50px">
+				<grid height="50px" model="@load(vm.horaires)">
 					<columns>
 						<column />
 						<column />
 						<column />
 						<column />
 					</columns>
-					<rows>
+					<template name="model" var="h">
 						<row>
 							<label>Jour</label>
-							<combobox>
-								<comboitem label="Lundi"/>
-								<comboitem label="Mardi"/>
-								<comboitem label="Mercredi"/>
-								<comboitem label="jeudi"/>
-								<comboitem label="Vendredi"/>
-								<comboitem label="Samedi"/>
-								<comboitem label="Dimanche"/>
+							<combobox selectedItem="@save(h.jour)"
+								value="@load(h.jour)">
+								<comboitem label="Lundi" value="Lundi" />
+								<comboitem label="Mardi" value="Mardi" />
+								<comboitem label="Mercredi"
+									value="Mercedi" />
+								<comboitem label="jeudi" value="jeudi" />
+								<comboitem label="Vendredi"
+									value="Vendredi" />
+								<comboitem label="Samedi"
+									value="Samedi" />
+								<comboitem label="Dimanche"
+									value="Dimanche" />
 							</combobox>
-							<datebox placeholder="Début"></datebox>
-							<datebox placeholder="Fin"></datebox>
+							<intbox placeholder="Heure Début"
+								value="@bind(h.debut)" />
+							<intbox placeholder="Heure Fin"
+								value="@bind(h.fin)" />
 						</row>
-					</rows>
+					</template>
 				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn-success"></button>
+				<button iconSclass="z-icon-plus" zclass="btn-primary"
+					onClick="@command('ajouterPlage')">
+				</button>
 			</hbox>
 
 			<label>Propriété Générales</label>
 			<hbox>
-				<grid height="75px">
+				<grid height="75px" model="@load(vm.proprieteStructures)">
 					<columns>
 						<column />
 						<column />
 						<column />
 						<column />
 					</columns>
-					<rows>
+					<template name="model" var="pStr">
 						<row>
 							<label>Code</label>
-							<textbox></textbox>
+							<textbox value="@bind(pStr.proprieteStructure.code)"/>
 							<label>Valeur</label>
-							<textbox></textbox>
-						</row>
-					</rows>
+							<textbox value="@bind(pStr.valeur)"/>
+						</row> 
+					</template>
 				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn-success"></button>
+				<button iconSclass="z-icon-plus" zclass="btn-primary" onClick="@command('ajouterPStr')"></button>
 			</hbox>
 
 			<label>Propriété Comptable</label>
@@ -71,7 +81,7 @@
 						</row>
 					</rows>
 				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn-success"></button>
+				<button iconSclass="z-icon-plus" zclass="btn-primary"></button>
 			</hbox>
 
 			<label zclass="text-lg">Information de la structure</label>
@@ -87,7 +97,7 @@
 						<label>Type</label>
 						<combobox focus="true" readonly="true"></combobox>
 						<label>Libellé</label>
-						<textbox></textbox>
+						<textbox value="@bind(vm.structure.libelle)"></textbox>
 					</row>
 					<row>
 						<label>Interne</label>
