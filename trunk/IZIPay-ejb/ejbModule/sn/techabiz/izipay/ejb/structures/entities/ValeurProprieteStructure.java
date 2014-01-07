@@ -23,6 +23,8 @@ public class ValeurProprieteStructure implements Serializable {
 	@ManyToOne
 	private ProprieteStructure proprieteStructure;
 	
+	private String valeur;
+	
 	private static final long serialVersionUID = 1L;
 
 	public ValeurProprieteStructure() {
@@ -51,6 +53,14 @@ public class ValeurProprieteStructure implements Serializable {
 
 	public void setProprieteStructure(ProprieteStructure proprieteStructure) {
 		this.proprieteStructure = proprieteStructure;
+	}
+
+	public String getValeur() {
+		return valeur;
+	}
+
+	public void setValeur(String valeur) {
+		this.valeur = valeur;
 	}
 
 }

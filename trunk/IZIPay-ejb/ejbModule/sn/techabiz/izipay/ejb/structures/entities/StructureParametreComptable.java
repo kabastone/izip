@@ -13,7 +13,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 @Entity
 @Table(name = "STRUCTURE_PARAMETRE_COMPTABLES")
-@SequenceGenerator(name = "SEQ_STRUCTPARAMCOMPTABLES", sequenceName = "SEQ_STRUCTPARAMETRECOMPTABLES", allocationSize = 50, initialValue = 100)
 public class StructureParametreComptable implements Serializable{
 
 	/**
@@ -25,7 +24,7 @@ public class StructureParametreComptable implements Serializable{
 	private Structure structure;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PARAMETRECOMPTABLES")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PARAM_ID")
 	public Long getId() {
 		return id;
