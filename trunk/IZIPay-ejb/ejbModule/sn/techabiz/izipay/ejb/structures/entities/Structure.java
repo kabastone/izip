@@ -34,6 +34,7 @@ public class Structure implements Serializable {
 	private Boolean internal, virtual;
 	@Valid
 	private TypeStructure type;
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_STRUCTURES")
@@ -55,7 +56,7 @@ public class Structure implements Serializable {
 		this.libelle = libelle;
 	}
 
-	@ManyToOne(cascade=CascadeType.MERGE)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "STRUCT_PARENT_ID")
 	public Structure getParent() {
 		return parent;
@@ -92,5 +93,6 @@ public class Structure implements Serializable {
 	public void setType(TypeStructure type) {
 		this.type = type;
 	}
+   
 
 }

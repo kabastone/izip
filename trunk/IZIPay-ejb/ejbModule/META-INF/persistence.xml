@@ -7,7 +7,9 @@
 		<jta-data-source>java:/izipayDS</jta-data-source>
 		<class>sn.techabiz.izipay.ejb.pays.entites.Pays</class>
 		<class>sn.techabiz.izipay.ejb.pays.entites.Piece</class>
+		<class>sn.techabiz.izipay.ejb.structures.entities.ParametreComptable</class>
 		<class>sn.techabiz.izipay.ejb.structures.entities.Structure</class>
+		<class>sn.techabiz.izipay.ejb.structures.entities.StructureParametreComptable</class>
 		<class>sn.techabiz.izipay.ejb.structures.entities.TypeStructure</class>
 		<class>sn.techabiz.izipay.ejb.utilisateurs.entites.Droit</class>
 		<class>sn.techabiz.izipay.ejb.utilisateurs.entites.Groupe</class>
