@@ -9,7 +9,6 @@ import org.zkoss.bind.annotation.DependsOn;
 import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
-import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
 import sn.techabiz.izipay.ejb.structures.entities.PlageHoraire;
@@ -22,11 +21,11 @@ import sn.techabiz.izipay.ejb.structures.services.TypeStructureServices;
 import sn.techabiz.izipay.services.JNDIOutils;
 import sn.techabiz.izipay.services.RegistreEJB;
 
-public class ModifierAgenceVM {
+public class ModifierStructureVM {
 	private List<PlageHoraire> horaires = new ArrayList<PlageHoraire>();
 	private List<ValeurProprieteStructure> proprieteStructures = new ArrayList<ValeurProprieteStructure>();
 	private ProprieteStructure pStructure = new ProprieteStructure();
-	
+
 	private StructureServices structureServices = (StructureServices) JNDIOutils
 			.chercheEJB(RegistreEJB.StructureFacade);
 
@@ -35,10 +34,11 @@ public class ModifierAgenceVM {
 
 	private List<TypeStructure> typeStructures = typeStructureServices
 			.findAll();
-	
+
 	private Long selected;
-	
+
 	private Structure structure;
+	private boolean auto;
 
 	public List<PlageHoraire> getHoraires() {
 		return horaires;
@@ -84,6 +84,13 @@ public class ModifierAgenceVM {
 		this.typeStructures = typeStructures;
 	}
 
+	public Long getSelected() {
+		return selected;
+	}
+
+	public void setSelected(Long selected) {
+		this.selected = selected;
+	}
 
 	@Command
 	@NotifyChange("horaires")
@@ -103,23 +110,29 @@ public class ModifierAgenceVM {
 	}
 
 	@Command
-	public void open() {
+	public void edit() {
+		if (auto)
+			auto = false;
+		else
+			auto = true;
+	}
 
+	@Command
+	public void open() {
 		Window w = (Window) Executions.createComponents(
 				"/pages/structures/structure_picker.zul", null, null);
 		w.doModal();
 	}
 
-	@GlobalCommand
 	@NotifyChange("structure")
+	@GlobalCommand
 	public void dlgClose(@BindingParam("parentID") Long parent) {
 		structure.setParent(structureServices.find(parent));
-		Messagebox.show(structure.getParent().getLibelle());
 	}
-	
-	@GlobalCommand
+
 	@NotifyChange("structure")
-	public void updateSelected(@BindingParam("selected") Long id){
+	@GlobalCommand
+	public void updateSelected(@BindingParam("selected") Long id) {
 		structure = structureServices.find(id);
 	}
 }

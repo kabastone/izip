@@ -1,6 +1,7 @@
 <?page contentType="text/html;charset=UTF-8"?>
 <zk xmlns:n="native">
-	<div>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.ModifierStructureVM')">
 		<n:h3>Édition Caisse</n:h3>
 		<vbox>
 			<label>Propriété Comptable</label>
@@ -35,19 +36,31 @@
 				<rows>
 					<row>
 						<label>Type</label>
-						<combobox focus="true" readonly="true"></combobox>
+						<combobox focus="true" readonly="true"
+							selectedItem="@bind(vm.structure.type)"
+							value="@load(vm.structure.type.code)"
+							model="@load(vm.typeStructures)">
+							<template name="model" var="ts">
+								<comboitem value="@load(ts)"
+									label="@load(ts.code)" />
+							</template>
+						</combobox>
 						<label>Libellé</label>
-						<textbox></textbox>
+						<textbox value="@bind(vm.structure.libelle)"></textbox>
 					</row>
 					<row>
 						<label>Interne</label>
-						<checkbox></checkbox>
+						<checkbox onClick="@command('edit')"
+							checked="@load(vm.structure.internal)">
+						</checkbox>
 						<label>Parent</label>
 						<hbox>
 							<button
-								iconSclass="glyphicon glyphicon-chevron-down">
+								iconSclass="glyphicon glyphicon-chevron-down"
+								onClick="@command('open')">
 							</button>
-							<label>plop</label>
+							<label
+								value="@load(vm.structure.parent.libelle)" />
 						</hbox>
 					</row>
 				</rows>

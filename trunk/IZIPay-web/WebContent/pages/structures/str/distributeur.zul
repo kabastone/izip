@@ -1,28 +1,34 @@
 <?page contentType="text/html;charset=UTF-8"?>
 <zk xmlns:n="native">
-	<div>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.ModifierStructureVM')">
 		<n:h3>Édition Distributeur</n:h3>
 		<vbox>
-			<label>Propriété Générales</label>
+						<label>Propriété Générales</label>
 			<hbox>
-				<grid height="75px">
+				<grid height="75px"
+					model="@load(vm.proprieteStructures)">
 					<columns>
 						<column />
 						<column />
 						<column />
 						<column />
 					</columns>
-					<rows>
+					<template name="model" var="pStr">
 						<row>
 							<label>Code</label>
-							<textbox></textbox>
+							<textbox
+								value="@bind(pStr.proprieteStructure.code)" />
 							<label>Valeur</label>
-							<textbox></textbox>
+							<textbox value="@bind(pStr.valeur)" />
 						</row>
-					</rows>
+					</template>
 				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn-success"></button>
+				<button iconSclass="z-icon-plus" zclass="btn-primary"
+					onClick="@command('ajouterPStr')">
+				</button>
 			</hbox>
+
 			<label>Propriété Comptable</label>
 			<hbox>
 				<grid height="75px">
@@ -41,7 +47,7 @@
 						</row>
 					</rows>
 				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn-success"></button>
+				<button iconSclass="z-icon-plus" zclass="btn-primary"></button>
 			</hbox>
 
 			<label zclass="text-lg">Information de la structure</label>
@@ -55,19 +61,28 @@
 				<rows>
 					<row>
 						<label>Type</label>
-						<combobox focus="true" readonly="true"></combobox>
+						<combobox focus="true" readonly="true" selectedItem="@bind(vm.structure.type)"
+							value="@load(vm.structure.type.code)" model="@load(vm.typeStructures)">
+							<template name="model" var="ts">
+								<comboitem value="@load(ts)" label="@load(ts.code)"/>
+							</template>
+						</combobox>
 						<label>Libellé</label>
-						<textbox></textbox>
+						<textbox value="@bind(vm.structure.libelle)"></textbox>
 					</row>
 					<row>
 						<label>Interne</label>
-						<checkbox></checkbox>
+						<checkbox onClick="@command('edit')"
+							checked="@load(vm.structure.internal)">
+						</checkbox>
 						<label>Parent</label>
 						<hbox>
 							<button
-								iconSclass="glyphicon glyphicon-chevron-down">
+								iconSclass="glyphicon glyphicon-chevron-down"
+								onClick="@command('open')">
 							</button>
-							<label>plop</label>
+							<label
+								value="@load(vm.structure.parent.libelle)" />
 						</hbox>
 					</row>
 				</rows>
