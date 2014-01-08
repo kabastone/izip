@@ -80,11 +80,35 @@ public class CreerVM {
 		Structure parent = new Structure();
 		if (parentID != null) {
 			parent = structureServices.find(parentID);
-			if (parent.getType().getRang() >= structure.getType().getRang()) {
-				Messagebox.show(" parent structure incorrect");
+			if (!parent
+					.getType()
+					.getCode()
+					.equalsIgnoreCase(structure.getType().getParent().getCode())) {
+				if (structure.getType().getCode().equalsIgnoreCase("AGENCE")
+						&& parent.getType().getCode()
+								.equalsIgnoreCase("OPERATEUR")) {
 
-			} else if (parent.getType().getRang() == structure.getType()
-					.getRang() - 1) {
+					Structure distributeur = new Structure();
+					distributeur.setLibelle("Dist virt");
+					distributeur.setVirtual(true);
+					distributeur.setType(structure.getType().getParent());
+					distributeur.setInternal(false);
+					distributeur.setParent(parent);
+
+					structure.setVirtual(false);
+
+					if (VMOutils.valider(structure)
+							&& VMOutils.valider(distributeur)) {
+
+						structure.setParent(distributeur);
+						structureServices.edit(structure);
+						String msg = structure.getLibelle() + " créée";
+						VMOutils.rafraichir(msg);
+					}
+				} else
+					Messagebox.show(" parent structure incorrect");
+
+			} else {
 				// structure.setParent(parent);
 				structure.setVirtual(false);
 				if (VMOutils.valider(structure)) {
@@ -93,28 +117,6 @@ public class CreerVM {
 					VMOutils.rafraichir(msg);
 				}
 
-			} else if (structure.getType().getCode().equalsIgnoreCase("AGENCE")
-					&& parent.getType().getCode().equalsIgnoreCase("OPERATEUR")) {
-
-				Structure distributeur = new Structure();
-				distributeur.setLibelle("Dist virt");
-				distributeur.setVirtual(true);
-				distributeur.setType(structure.getType().getParent());
-				distributeur.setInternal(false);
-				distributeur.setParent(parent);
-				
-
-				structure.setVirtual(false);
-				
-				if (VMOutils.valider(structure)
-						&& VMOutils.valider(distributeur)) {					
-					structure.setParent(distributeur);
-					structureServices.edit(structure);
-					String msg = structure.getLibelle() + " créée";
-					VMOutils.rafraichir(msg);
-				}
-			} else {
-				Messagebox.show("parent structure incorrect");
 			}
 
 		} else {
