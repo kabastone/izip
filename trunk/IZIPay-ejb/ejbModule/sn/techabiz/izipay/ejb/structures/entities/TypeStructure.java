@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "TYPES_STRUCTURES")
-public class TypeStructure implements Serializable, Comparable<TypeStructure> {
+public class TypeStructure implements Serializable {
 	/**
 	 * 
 	 */
@@ -24,7 +24,7 @@ public class TypeStructure implements Serializable, Comparable<TypeStructure> {
 
 	private String description;
 
-	private Integer rang;
+   
 
 	private Boolean autonome, virtualAllowed;
 	@Valid
@@ -49,14 +49,7 @@ public class TypeStructure implements Serializable, Comparable<TypeStructure> {
 		this.description = description;
 	}
 
-	@Column(name = "TS_RANG")
-	public Integer getRang() {
-		return rang;
-	}
-
-	public void setRang(Integer rang) {
-		this.rang = rang;
-	}
+	
 
 	@Column(name = "TS_AUTONOME_ALLOWED")
 	public Boolean getAutonome() {
@@ -86,9 +79,6 @@ public class TypeStructure implements Serializable, Comparable<TypeStructure> {
 		this.parent = parent;
 	}
 
-	@Override
-	public int compareTo(TypeStructure o) {
-		return getRang().compareTo(o.getRang());
-	}
+	
 
 }
