@@ -28,6 +28,8 @@ import sn.techabiz.izipay.ejb.structures.services.TypeStructureServices;
 import sn.techabiz.izipay.ejb.structures.services.ValeurProprieteStructureServices;
 import sn.techabiz.izipay.services.JNDIOutils;
 import sn.techabiz.izipay.services.RegistreEJB;
+import sn.techabiz.izipay.web.commons.StructureOutils;
+import sn.techabiz.izipay.web.commons.VMOutils;
 
 public class ModifierStructureVM {
 
@@ -219,5 +221,19 @@ public class ModifierStructureVM {
 				}
 			}
 		}
+
+		if (valeurProprieteStructures.size() > 0) {
+			for (ValeurProprieteStructure vps : valeurProprieteStructures) {
+				if (vps.getId() == null) {
+					vps.setStructure(structure);
+					valeurServices.create(vps);
+				} else {
+					valeurServices.edit(vps);
+				}
+			}
+		}
+
+		structureServices.edit(structure);
+		VMOutils.rafraichir(structure.getLibelle()+" fut modifié avec succès !");
 	}
 }
