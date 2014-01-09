@@ -11,9 +11,11 @@ import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zul.Window;
 
+import sn.techabiz.izipay.ejb.structures.entities.ParametreComptable;
 import sn.techabiz.izipay.ejb.structures.entities.PlageHoraire;
 import sn.techabiz.izipay.ejb.structures.entities.ProprieteStructure;
 import sn.techabiz.izipay.ejb.structures.entities.Structure;
+import sn.techabiz.izipay.ejb.structures.entities.StructureParametreComptable;
 import sn.techabiz.izipay.ejb.structures.entities.TypeStructure;
 import sn.techabiz.izipay.ejb.structures.entities.ValeurProprieteStructure;
 import sn.techabiz.izipay.ejb.structures.services.StructureServices;
@@ -22,9 +24,15 @@ import sn.techabiz.izipay.services.JNDIOutils;
 import sn.techabiz.izipay.services.RegistreEJB;
 
 public class ModifierStructureVM {
+	
+	
 	private List<PlageHoraire> horaires = new ArrayList<PlageHoraire>();
 	private List<ValeurProprieteStructure> proprieteStructures = new ArrayList<ValeurProprieteStructure>();
 	private ProprieteStructure pStructure = new ProprieteStructure();
+	private List<StructureParametreComptable> listeParam = new ArrayList<StructureParametreComptable>();
+	private ParametreComptable parametreComptable = new ParametreComptable();
+	
+
 
 	private StructureServices structureServices = (StructureServices) JNDIOutils
 			.chercheEJB(RegistreEJB.StructureFacade);
@@ -64,7 +72,7 @@ public class ModifierStructureVM {
 	public void setpStructure(ProprieteStructure pStructure) {
 		this.pStructure = pStructure;
 	}
-
+	
 	@DependsOn("selected")
 	public Structure getStructure() {
 		if (selected != null)
@@ -108,6 +116,17 @@ public class ModifierStructureVM {
 		proprieteStructures.add(valeurProprieteStructure);
 		pStructure = new ProprieteStructure();
 	}
+	
+	@Command
+	@NotifyChange({ "listeParam", "parametreComptable" })
+	public void ajouterStructParam() {
+		
+		StructureParametreComptable spc = new StructureParametreComptable();
+		spc.setParamComptable(parametreComptable);
+		listeParam.add(spc);
+		parametreComptable = new ParametreComptable();
+		
+	}
 
 	@Command
 	public void edit() {
@@ -134,5 +153,26 @@ public class ModifierStructureVM {
 	@GlobalCommand
 	public void updateSelected(@BindingParam("selected") Long id) {
 		structure = structureServices.find(id);
+		
 	}
+   
+
+	
+	public List<StructureParametreComptable> getListeParam() {
+		return listeParam;
+	}
+
+	public void setListeParam(List<StructureParametreComptable> listeParam) {
+		this.listeParam = listeParam;
+	}
+
+	public ParametreComptable getParametreComptable() {
+		return parametreComptable;
+	}
+
+	public void setParametreComptable(ParametreComptable parametreComptable) {
+		this.parametreComptable = parametreComptable;
+	}
+
+	
 }
