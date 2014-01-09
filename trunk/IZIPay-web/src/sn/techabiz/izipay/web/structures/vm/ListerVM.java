@@ -26,7 +26,7 @@ public class ListerVM {
 	private Long currentScope = 1L, selected;
 
 	private StructureOutils so = new StructureOutils();
-	private String url = "/pages/structures/str/caisse.zul";
+	private String url = "/pages/structures/str/sac.zul";
 
 	@AfterCompose
 	public void init(@ContextParam(ContextType.VIEW) Component view) {
