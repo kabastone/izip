@@ -1,23 +1,28 @@
 <?page title="" contentType="text/html;charset=UTF-8"?>
 <div>
-	<hbox width="1024px">
+	<hbox width="1024px" >
 		<hbox width="512px">
 			<image src="images/globe.png" width="100px" />
 		</hbox>
-		
+
 		<hbox width="256px" align="center" vflex="1" pack="end">
 			<a label="Profils" zclass="text-lg"
 				popup="profil, position=after_end, type=toggle">
+				<span zclass="caret"></span>
 			</a>
-			(<label zclass="text-danger">Admin</label>)
+			(
+			<label zclass="text-danger">Admin</label>
+			)
 		</hbox>
-		
+
 		<hbox width="256px" align="center" vflex="1" pack="end">
 			<a label="Alioune Johnson" zclass="text-lg"
 				popup="setting, position=after_end, type=toggle">
+				<span zclass="caret"></span>
 			</a>
+			
 		</hbox>
-		
+
 	</hbox>
 	<popup id="profil">
 		<vlayout>

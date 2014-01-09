@@ -25,7 +25,7 @@
 							</template>
 						</combobox>
 						<label>Libellé</label>
-						<textbox value="@save(vm.structure.libelle)"></textbox>
+						<textbox  value="@save(vm.structure.libelle)"></textbox>
 					</row>
 					<row>
 						<label>Interne</label>

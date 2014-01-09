@@ -2,7 +2,7 @@
 <zk>
 	<window>
 		<hbox width="1024px">
-			<tree width="128px" vflex="1">
+			<tree width="128px" vflex="1" style="margin-top : 105px; border-color:white">
 				<treechildren>
 					<treeitem label="Créer"></treeitem>
 					<treeitem label="Lister"></treeitem>

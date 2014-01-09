@@ -2,7 +2,7 @@
 <zk xmlns:n="native">
 	<div apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.ModifierStructureVM')">
-		<n:h3>Édition Agence</n:h3>
+		<n:h4>Édition Agence</n:h4>
 		<vbox>
 			<label>Plage horaire</label>
 			<hbox>
@@ -37,7 +37,7 @@
 						</row>
 					</template>
 				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn-primary"
+				<button iconSclass="z-icon-plus" zclass="btn btn-primary btn-xs"
 					onClick="@command('ajouterPlage')">
 				</button>
 			</hbox>
@@ -71,7 +71,7 @@
 						</row>
 					</template>
 				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn-primary"
+				<button iconSclass="z-icon-plus" zclass="btn btn-primary btn-xs"
 					onClick="@command('ajouterPStr')">
 				</button>
 			</hbox>
@@ -105,7 +105,7 @@
 
 					</grid>
 					<button iconSclass="z-icon-plus"
-						zclass="btn-primary" onClick="@command('ajouterStructParam')">
+						zclass="btn btn-primary btn-xs" onClick="@command('ajouterStructParam')">
 					</button>
 				</hbox>
 			</div>

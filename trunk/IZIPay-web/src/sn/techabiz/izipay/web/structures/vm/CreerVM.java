@@ -17,6 +17,7 @@ import sn.techabiz.izipay.ejb.structures.services.TypeStructureServices;
 import sn.techabiz.izipay.services.JNDIOutils;
 import sn.techabiz.izipay.services.RegistreEJB;
 import sn.techabiz.izipay.web.commons.VMOutils;
+import sun.org.mozilla.javascript.internal.ast.ContinueStatement;
 
 public class CreerVM {
 
@@ -73,8 +74,6 @@ public class CreerVM {
 
 	@Command("save")
 	public void doCreate() {
-		new Structure();
-		structureServices.find(currentscope);
 
 		structure.setInternal(auto);
 		Structure parent = new Structure();
@@ -143,10 +142,21 @@ public class CreerVM {
 
 	@GlobalCommand("dlgClose")
 	@NotifyChange("parentID")
-	public void dlgClose(@BindingParam("parentID") Long parent) {
-		parentID = parent;
+	public void dlgClose(@BindingParam("parentID") Long parentID) {
+		this.parentID = parentID;
 
-		structure.setParent(structureServices.find(parent));
+		Structure parent = new Structure();
+		parent = structureServices.find(this.parentID);
+		structure.setParent(parent);
+		if (!parent.getType().getCode()
+				.equalsIgnoreCase(structure.getType().getParent().getCode())) {
+			if (structure.getType().getCode().equalsIgnoreCase("AGENCE")
+					&& parent.getType().getCode().equalsIgnoreCase("OPERATEUR")) {
+                     
+			} else
+				Messagebox.show(" parent structure incorrect");
+
+		}
 
 	}
 }
