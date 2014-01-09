@@ -41,7 +41,7 @@
 					</row>
 				</rows>
 			</grid>
-			<button zclass="btn btn-primary">Ajouter</button>
+			<button zclass="btn btn-primary" onClick="@command('save')">Ajouter</button>
 		</vbox>
 	</window>
 </zk>
