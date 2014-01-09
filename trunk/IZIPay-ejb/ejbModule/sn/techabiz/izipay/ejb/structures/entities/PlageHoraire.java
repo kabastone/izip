@@ -1,6 +1,7 @@
 package sn.techabiz.izipay.ejb.structures.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "PLAGES_HORAIRE")
-@NamedQueries(value = { @NamedQuery(name = "PlageHosraire.findByAgence", query = "SELECT ph FROM PlageHoraire ph WHERE ph.agence = :agence") })
+@NamedQueries(value = { @NamedQuery(name = "PlageHoraire.findByAgence", query = "SELECT ph FROM PlageHoraire ph WHERE ph.agence=:agence") })
 public class PlageHoraire implements Serializable {
 	/**
 	 * 
@@ -31,7 +32,7 @@ public class PlageHoraire implements Serializable {
 	@ManyToOne
 	private Structure agence;
 
-	private Integer debut, fin;
+	private Date debut, fin;
 
 	private String jour;
 
@@ -59,19 +60,19 @@ public class PlageHoraire implements Serializable {
 		this.jour = jour;
 	}
 
-	public Integer getDebut() {
+	public Date getDebut() {
 		return debut;
 	}
 
-	public Integer getFin() {
+	public Date getFin() {
 		return fin;
 	}
 
-	public void setDebut(Integer debut) {
+	public void setDebut(Date debut) {
 		this.debut = debut;
 	}
 
-	public void setFin(Integer fin) {
+	public void setFin(Date fin) {
 		this.fin = fin;
 	}
 

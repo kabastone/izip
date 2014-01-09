@@ -35,7 +35,7 @@ public class PlageHoraireFacade extends AbstractFacade<PlageHoraire> implements
 	
 	public List<PlageHoraire> getPlaceHoraire(Structure s){
 		try {
-			Query q = em.createNamedQuery("PlageHosraire.findByAgence");
+			Query q = em.createNamedQuery("PlageHoraire.findByAgence");
 			q.setParameter("agence", s);
 			return q.getResultList();
 		} catch (Exception e) {

@@ -2,5 +2,7 @@ package sn.techabiz.izipay.services;
 
 public enum RegistreEJB {
 	UtilisateurFacade, CaisseFacade, AgenceFacade, BanqueFacade,
-	PaysFacade, GroupeFacade, TypeStructureFacade, StructureFacade, StructParamComptableFacade
+	PaysFacade, GroupeFacade, TypeStructureFacade, StructureFacade,
+	StructParamComptableFacade, ValeurProprieteStructureFacade,
+	ProprieteStructureFacade, ParametreComptableFacade, PlageHoraireFacade
 }
