@@ -11,6 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "VALEURS_PROPRIETES_STRUCTURES")
+@NamedQueries(value = { @NamedQuery(name = "ValeurProprieteStructure.findByStructure", query = "SELECT vps FROM  ValeurProprieteStructure vps WHERE vps.structure = :structure") })
 public class ValeurProprieteStructure implements Serializable {
 
 	@Id
