@@ -1,0 +1,78 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.ModifierStructureVM')">
+		<n:h4>Édition Caisse</n:h4>
+		<vbox>
+			<div visible="@load(!vm.structure.internal)">
+				<label>Propriété Comptable</label>
+				<hbox>
+					<grid height="75px" model="@load(vm.listeParam)">
+						<columns>
+							<column />
+							<column />
+							<column />
+							<column />
+						</columns>
+
+						<template name="model">
+							<row>
+								<label>Code</label>
+								<textbox
+									value="@bind(each.paramComptable.code)">
+								</textbox>
+								<label>Valeur</label>
+								<textbox value="@bind(each.value)"></textbox>
+							</row>
+						</template>
+
+					</grid>
+					<button iconSclass="z-icon-plus"
+						zclass="btn btn-primary btn-xs" onClick="@command('ajouterStructParam')">
+					</button>
+				</hbox>
+			</div>
+			<label zclass="text-lg">Information de la structure</label>
+			<grid sclass="table">
+				<columns>
+					<column />
+					<column />
+					<column />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<label>Type</label>
+						<combobox focus="true" readonly="true"
+							selectedItem="@bind(vm.structure.type)"
+							value="@load(vm.structure.type.code)"
+							model="@load(vm.typeStructures)">
+							<template name="model" var="ts">
+								<comboitem value="@load(ts)"
+									label="@load(ts.code)" />
+							</template>
+						</combobox>
+						<label>Libellé</label>
+						<textbox value="@bind(vm.structure.libelle)"></textbox>
+					</row>
+					<row>
+						<label>Interne</label>
+						<checkbox onClick="@command('edit')"
+							checked="@load(vm.structure.internal)">
+						</checkbox>
+						<label>Parent</label>
+						<hbox>
+							<button
+								iconSclass="glyphicon glyphicon-chevron-down"
+								onClick="@command('open')">
+							</button>
+							<label
+								value="@load(vm.structure.parent.libelle)" />
+						</hbox>
+					</row>
+				</rows>
+			</grid>
+			<button zclass="btn btn-primary">Valider</button>
+		</vbox>
+	</div>
+</zk>
