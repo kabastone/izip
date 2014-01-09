@@ -7,7 +7,7 @@
 			<label>Propriété Générales</label>
 			<hbox>
 				<grid height="75px"
-					model="@load(vm.proprieteStructures)">
+					model="@load(vm.valeurProprieteStructures)">
 					<columns>
 						<column />
 						<column />
@@ -17,8 +17,17 @@
 					<template name="model" var="pStr">
 						<row>
 							<label>Code</label>
-							<textbox
-								value="@bind(pStr.proprieteStructure.code)" />
+
+							<combobox
+								model="@load(vm.proprieteStructures)"
+								selectedItem="@save(pStr.proprieteStructure)"
+								value="@load(pStr.proprieteStructure.code)" focus="true">
+								<template name="model" var="ps">
+									<comboitem label="@load(ps.code)"
+										value="@load(ps)" />
+								</template>
+							</combobox>
+
 							<label>Valeur</label>
 							<textbox value="@bind(pStr.valeur)" />
 						</row>
@@ -39,12 +48,18 @@
 							<column />
 						</columns>
 
-						<template name="model">
+						<template name="model" var="pc">
 							<row>
 								<label>Code</label>
-								<textbox
-									value="@bind(each.paramComptable.code)">
-								</textbox>
+								<combobox
+									model="@load(vm.parametreComptables)"
+									selectedItem="@save(pc.paramComptable)"
+									value="@load(pc.paramComptable.code)">
+									<template name="model" var="ps">
+										<comboitem
+											label="@load(ps.code)" value="@load(ps)" />
+									</template>
+								</combobox>
 								<label>Valeur</label>
 								<textbox value="@bind(each.value)"></textbox>
 							</row>

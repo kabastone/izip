@@ -3,6 +3,7 @@ package sn.techabiz.izipay.web.structures.vm;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.DependsOn;
@@ -18,21 +19,17 @@ import sn.techabiz.izipay.ejb.structures.entities.Structure;
 import sn.techabiz.izipay.ejb.structures.entities.StructureParametreComptable;
 import sn.techabiz.izipay.ejb.structures.entities.TypeStructure;
 import sn.techabiz.izipay.ejb.structures.entities.ValeurProprieteStructure;
+import sn.techabiz.izipay.ejb.structures.services.ParametreComptableServices;
+import sn.techabiz.izipay.ejb.structures.services.PlageHoraireServices;
+import sn.techabiz.izipay.ejb.structures.services.ProprieteStructureServices;
+import sn.techabiz.izipay.ejb.structures.services.StructParamComptableServices;
 import sn.techabiz.izipay.ejb.structures.services.StructureServices;
 import sn.techabiz.izipay.ejb.structures.services.TypeStructureServices;
+import sn.techabiz.izipay.ejb.structures.services.ValeurProprieteStructureServices;
 import sn.techabiz.izipay.services.JNDIOutils;
 import sn.techabiz.izipay.services.RegistreEJB;
 
 public class ModifierStructureVM {
-	
-	
-	private List<PlageHoraire> horaires = new ArrayList<PlageHoraire>();
-	private List<ValeurProprieteStructure> proprieteStructures = new ArrayList<ValeurProprieteStructure>();
-	private ProprieteStructure pStructure = new ProprieteStructure();
-	private List<StructureParametreComptable> listeParam = new ArrayList<StructureParametreComptable>();
-	private ParametreComptable parametreComptable = new ParametreComptable();
-	
-
 
 	private StructureServices structureServices = (StructureServices) JNDIOutils
 			.chercheEJB(RegistreEJB.StructureFacade);
@@ -40,7 +37,30 @@ public class ModifierStructureVM {
 	private TypeStructureServices typeStructureServices = (TypeStructureServices) JNDIOutils
 			.chercheEJB(RegistreEJB.TypeStructureFacade);
 
+	private ValeurProprieteStructureServices valeurServices = (ValeurProprieteStructureServices) JNDIOutils
+			.chercheEJB(RegistreEJB.ValeurProprieteStructureFacade);
+
+	private ProprieteStructureServices proServices = (ProprieteStructureServices) JNDIOutils
+			.chercheEJB(RegistreEJB.ProprieteStructureFacade);
+
+	private ParametreComptableServices comptableServices = (ParametreComptableServices) JNDIOutils
+			.chercheEJB(RegistreEJB.ParametreComptableFacade);
+
+	private StructParamComptableServices paramServices = (StructParamComptableServices) JNDIOutils
+			.chercheEJB(RegistreEJB.StructParamComptableFacade);
+
+	private PlageHoraireServices plageHoraireServices = (PlageHoraireServices) JNDIOutils
+			.chercheEJB(RegistreEJB.PlageHoraireFacade);
+
 	private List<TypeStructure> typeStructures = typeStructureServices
+			.findAll();
+
+	private List<PlageHoraire> horaires = new ArrayList<PlageHoraire>();
+	private List<ValeurProprieteStructure> valeurProprieteStructures = new ArrayList<ValeurProprieteStructure>();
+	private List<ProprieteStructure> proprieteStructures = proServices
+			.findAll();
+	private List<StructureParametreComptable> listeParam = new ArrayList<StructureParametreComptable>();
+	private List<ParametreComptable> parametreComptables = comptableServices
 			.findAll();
 
 	private Long selected;
@@ -56,48 +76,73 @@ public class ModifierStructureVM {
 		this.horaires = horaires;
 	}
 
-	public List<ValeurProprieteStructure> getProprieteStructures() {
-		return proprieteStructures;
-	}
-
-	public void setProprieteStructures(
-			List<ValeurProprieteStructure> proprieteStructures) {
-		this.proprieteStructures = proprieteStructures;
-	}
-
-	public ProprieteStructure getpStructure() {
-		return pStructure;
-	}
-
-	public void setpStructure(ProprieteStructure pStructure) {
-		this.pStructure = pStructure;
-	}
-	
-	@DependsOn("selected")
-	public Structure getStructure() {
-		if (selected != null)
-			structure = structureServices.find(selected);
-		return structure;
-	}
-
-	public void setStructure(Structure structure) {
-		this.structure = structure;
-	}
-
 	public List<TypeStructure> getTypeStructures() {
 		return typeStructures;
 	}
 
-	public void setTypeStructures(List<TypeStructure> typeStructures) {
-		this.typeStructures = typeStructures;
+	public List<ValeurProprieteStructure> getValeurProprieteStructures() {
+		return valeurProprieteStructures;
+	}
+
+	public List<ProprieteStructure> getProprieteStructures() {
+		return proprieteStructures;
+	}
+
+	public List<StructureParametreComptable> getListeParam() {
+		return listeParam;
+	}
+
+	public List<ParametreComptable> getParametreComptables() {
+		return parametreComptables;
 	}
 
 	public Long getSelected() {
 		return selected;
 	}
 
+	public void setTypeStructures(List<TypeStructure> typeStructures) {
+		this.typeStructures = typeStructures;
+	}
+
+	public void setValeurProprieteStructures(
+			List<ValeurProprieteStructure> valeurProprieteStructures) {
+		this.valeurProprieteStructures = valeurProprieteStructures;
+	}
+
+	public void setProprieteStructures(
+			List<ProprieteStructure> proprieteStructures) {
+		this.proprieteStructures = proprieteStructures;
+	}
+
+	public void setListeParam(List<StructureParametreComptable> listeParam) {
+		this.listeParam = listeParam;
+	}
+
+	public void setParametreComptables(
+			List<ParametreComptable> parametreComptables) {
+		this.parametreComptables = parametreComptables;
+	}
+
 	public void setSelected(Long selected) {
 		this.selected = selected;
+	}
+
+	public void setStructure(Structure structure) {
+		this.structure = structure;
+	}
+
+	@DependsOn("selected")
+	@NotifyChange({ "horaires", "valeurProprieteStructures", "listeParam" })
+	public Structure getStructure() {
+		if (selected != null) {
+			structure = structureServices.find(selected);
+
+			horaires = plageHoraireServices.getPlaceHoraire(structure);
+			valeurProprieteStructures = valeurServices
+					.getValeurProprieteStructures(structure);
+			listeParam = paramServices.findByStructure(structure);
+		}
+		return structure;
 	}
 
 	@Command
@@ -107,25 +152,15 @@ public class ModifierStructureVM {
 	}
 
 	@Command
-	@NotifyChange({ "proprieteStructures", "pStructure" })
+	@NotifyChange("valeurProprieteStructures")
 	public void ajouterPStr() {
-		ValeurProprieteStructure valeurProprieteStructure = new ValeurProprieteStructure();
-
-		valeurProprieteStructure.setProprieteStructure(pStructure);
-
-		proprieteStructures.add(valeurProprieteStructure);
-		pStructure = new ProprieteStructure();
+		valeurProprieteStructures.add(new ValeurProprieteStructure());
 	}
-	
+
 	@Command
 	@NotifyChange({ "listeParam", "parametreComptable" })
 	public void ajouterStructParam() {
-		
-		StructureParametreComptable spc = new StructureParametreComptable();
-		spc.setParamComptable(parametreComptable);
-		listeParam.add(spc);
-		parametreComptable = new ParametreComptable();
-		
+		listeParam.add(new StructureParametreComptable());
 	}
 
 	@Command
@@ -149,30 +184,40 @@ public class ModifierStructureVM {
 		structure.setParent(structureServices.find(parent));
 	}
 
-	@NotifyChange("structure")
+	@NotifyChange({ "structure", "horaires", "valeurProprieteStructures",
+			"listeParam" })
 	@GlobalCommand
 	public void updateSelected(@BindingParam("selected") Long id) {
 		structure = structureServices.find(id);
-		
-	}
-   
 
-	
-	public List<StructureParametreComptable> getListeParam() {
-		return listeParam;
+		horaires = plageHoraireServices.getPlaceHoraire(structure);
+		valeurProprieteStructures = valeurServices
+				.getValeurProprieteStructures(structure);
+		listeParam = paramServices.findByStructure(structure);
 	}
 
-	public void setListeParam(List<StructureParametreComptable> listeParam) {
-		this.listeParam = listeParam;
-	}
+	@Command
+	public void editStructure() {
+		if (horaires.size() > 0) {
+			for (PlageHoraire ph : horaires) {
+				if (ph.getId() == null) {
+					ph.setAgence(structure);
+					plageHoraireServices.create(ph);
+				} else {
+					plageHoraireServices.edit(ph);
+				}
+			}
+		}
 
-	public ParametreComptable getParametreComptable() {
-		return parametreComptable;
+		if (listeParam.size() > 0) {
+			for (StructureParametreComptable spc : listeParam) {
+				if (spc.getId() == null) {
+					spc.setStructure(structure);
+					paramServices.create(spc);
+				} else {
+					paramServices.edit(spc);
+				}
+			}
+		}
 	}
-
-	public void setParametreComptable(ParametreComptable parametreComptable) {
-		this.parametreComptable = parametreComptable;
-	}
-
-	
 }

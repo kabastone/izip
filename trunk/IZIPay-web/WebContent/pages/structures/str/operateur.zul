@@ -4,10 +4,10 @@
 		viewModel="@id('vm') @init('sn.techabiz.izipay.web.structures.vm.ModifierStructureVM')">
 		<n:h3>Édition Opérateur</n:h3>
 		<vbox>
-						<label>Propriété Générales</label>
+			<label>Propriété Générales</label>
 			<hbox>
 				<grid height="75px"
-					model="@load(vm.proprieteStructures)">
+					model="@load(vm.valeurProprieteStructures)">
 					<columns>
 						<column />
 						<column />
@@ -17,8 +17,17 @@
 					<template name="model" var="pStr">
 						<row>
 							<label>Code</label>
-							<textbox
-								value="@bind(pStr.proprieteStructure.code)" />
+
+							<combobox
+								model="@load(vm.proprieteStructures)"
+								selectedItem="@save(pStr.proprieteStructure)"
+								value="@load(pStr.proprieteStructure.code)">
+								<template name="model" var="ps">
+									<comboitem label="@load(ps.code)"
+										value="@load(ps)" />
+								</template>
+							</combobox>
+
 							<label>Valeur</label>
 							<textbox value="@bind(pStr.valeur)" />
 						</row>
@@ -28,35 +37,40 @@
 					onClick="@command('ajouterPStr')">
 				</button>
 			</hbox>
-<div visible="@load(!vm.structure.internal)">
-			<label>Propriété Comptable</label>
-			
-			<hbox>
-				<grid height="75px" model="@load(vm.listeParam)">
-					<columns>
-						<column />
-						<column />
-						<column />
-						<column />
-					</columns>
+			<div visible="@load(!vm.structure.internal)">
+				<label>Propriété Comptable</label>
+				<hbox>
+					<grid height="75px" model="@load(vm.listeParam)">
+						<columns>
+							<column />
+							<column />
+							<column />
+							<column />
+						</columns>
 
-					<template name="model">
-						<row>
-							<label>Code</label>
-							<textbox
-								value="@bind(each.paramComptable.code)">
-							</textbox>
-							<label>Valeur</label>
-							<textbox value="@bind(each.value)"></textbox>
-						</row>
-					</template>
+						<template name="model" var="pc">
+							<row>
+								<label>Code</label>
+								<combobox
+									model="@load(vm.parametreComptables)"
+									selectedItem="@save(pc.paramComptable)"
+									value="@load(pc.paramComptable.code)">
+									<template name="model" var="ps">
+										<comboitem
+											label="@load(ps.code)" value="@load(ps)" />
+									</template>
+								</combobox>
+								<label>Valeur</label>
+								<textbox value="@bind(each.value)"></textbox>
+							</row>
+						</template>
 
-				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn-primary"
-					onClick="@command('ajouterStructParam')">
-				</button>
-			</hbox>
-            </div>
+					</grid>
+					<button iconSclass="z-icon-plus"
+						zclass="btn-primary" onClick="@command('ajouterStructParam')">
+					</button>
+				</hbox>
+			</div>
 			<label zclass="text-lg">Information de la structure</label>
 			<grid sclass="table">
 				<columns>
@@ -68,10 +82,13 @@
 				<rows>
 					<row>
 						<label>Type</label>
-						<combobox focus="true" readonly="true" selectedItem="@bind(vm.structure.type)"
-							value="@load(vm.structure.type.code)" model="@load(vm.typeStructures)">
+						<combobox focus="true" readonly="true"
+							selectedItem="@bind(vm.structure.type)"
+							value="@load(vm.structure.type.code)"
+							model="@load(vm.typeStructures)">
 							<template name="model" var="ts">
-								<comboitem value="@load(ts)" label="@load(ts.code)"/>
+								<comboitem value="@load(ts)"
+									label="@load(ts.code)" />
 							</template>
 						</combobox>
 						<label>Libellé</label>
