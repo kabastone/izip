@@ -9,11 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = "STRUCTURE_PARAMETRE_COMPTABLES")
-public class StructureParametreComptable implements Serializable{
+@NamedQueries(value = { @NamedQuery(name = "StructureParametreComptable.findByStructure", query = "SELECT sp FROM StructureParametreComptable sp WHERE sp.structure = :structure ") })
+public class StructureParametreComptable implements Serializable {
+
 
 	/**
 	 * 
@@ -22,34 +27,47 @@ public class StructureParametreComptable implements Serializable{
 	private Long id;
 	private ParametreComptable paramComptable;
 	private Structure structure;
+	private String value;
+
+
 	
-	@Id
+    @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PARAM_ID")
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	@ManyToOne
 	@JoinColumn(name = "STRUCT_PC_ID")
 	public ParametreComptable getParamComptable() {
 		return paramComptable;
 	}
+
 	public void setParamComptable(ParametreComptable paramComptable) {
 		this.paramComptable = paramComptable;
 	}
+
 	@ManyToOne
 	@JoinColumn(name = "STRUCT_ID")
 	public Structure getStructure() {
 		return structure;
 	}
+
 	public void setStructure(Structure structure) {
 		this.structure = structure;
 	}
-	
-	
-	
+    @Column(name="STRUCT_PARAM_VALUE")
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
 
 }
