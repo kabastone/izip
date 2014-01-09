@@ -66,28 +66,34 @@
 					onClick="@command('ajouterPStr')">
 				</button>
 			</hbox>
+			<div visible="@load(!vm.structure.internal)">
+				<label>Propriété Comptable</label>
+				<hbox>
+					<grid height="75px" model="@load(vm.listeParam)">
+						<columns>
+							<column />
+							<column />
+							<column />
+							<column />
+						</columns>
 
-			<label>Propriété Comptable</label>
-			<hbox>
-				<grid height="75px">
-					<columns>
-						<column />
-						<column />
-						<column />
-						<column />
-					</columns>
-					<rows>
-						<row>
-							<label>Code</label>
-							<textbox></textbox>
-							<label>Valeur</label>
-							<textbox></textbox>
-						</row>
-					</rows>
-				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn-primary"></button>
-			</hbox>
+						<template name="model">
+							<row>
+								<label>Code</label>
+								<textbox
+									value="@bind(each.paramComptable.code)">
+								</textbox>
+								<label>Valeur</label>
+								<textbox value="@bind(each.value)"></textbox>
+							</row>
+						</template>
 
+					</grid>
+					<button iconSclass="z-icon-plus"
+						zclass="btn-primary" onClick="@command('ajouterStructParam')">
+					</button>
+				</hbox>
+			</div>
 			<label zclass="text-lg">Information de la structure</label>
 			<grid sclass="table">
 				<columns>
@@ -99,10 +105,13 @@
 				<rows>
 					<row>
 						<label>Type</label>
-						<combobox focus="true" readonly="true" selectedItem="@bind(vm.structure.type)"
-							value="@load(vm.structure.type.code)" model="@load(vm.typeStructures)">
+						<combobox focus="true" readonly="true"
+							selectedItem="@bind(vm.structure.type)"
+							value="@load(vm.structure.type.code)"
+							model="@load(vm.typeStructures)">
 							<template name="model" var="ts">
-								<comboitem value="@load(ts)" label="@load(ts.code)"/>
+								<comboitem value="@load(ts)"
+									label="@load(ts.code)" />
 							</template>
 						</combobox>
 						<label>Libellé</label>
