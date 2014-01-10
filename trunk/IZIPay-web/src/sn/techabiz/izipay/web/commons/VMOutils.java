@@ -48,7 +48,7 @@ public class VMOutils {
 			public void onEvent(Event event) throws Exception {
 				Integer i = (Integer) event.getData();
 				if(i == Messagebox.OK){
-					Executions.sendRedirect("/index.zul");
+					Executions.sendRedirect("/test1.zul");
 				}
 			}
 		});
