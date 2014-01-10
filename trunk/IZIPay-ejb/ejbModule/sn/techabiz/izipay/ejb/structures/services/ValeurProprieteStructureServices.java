@@ -9,6 +9,10 @@ import sn.techabiz.izipay.ejb.structures.entities.ValeurProprieteStructure;
 
 @Remote
 public interface ValeurProprieteStructureServices {
+	public void create(ValeurProprieteStructure vps);
+
+	public void edit(ValeurProprieteStructure vps);
+
 	public List<ValeurProprieteStructure> getValeurProprieteStructures(
 			Structure s);
 }
