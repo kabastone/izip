@@ -72,12 +72,8 @@
 				</button>
 			</hbox>
             </div>
-					</grid>
-					<button iconSclass="z-icon-plus"
-						zclass="btn-primary" onClick="@command('ajouterStructParam')">
-					</button>
-				</hbox>
-			</div>
+					
+			
 			<label zclass="text-lg">Information de la structure</label>
 			<grid sclass="table">
 				<columns>

@@ -3,13 +3,13 @@ package sn.techabiz.izipay.web.structures.vm;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.DependsOn;
 import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
 import sn.techabiz.izipay.ejb.structures.entities.ParametreComptable;
@@ -28,7 +28,6 @@ import sn.techabiz.izipay.ejb.structures.services.TypeStructureServices;
 import sn.techabiz.izipay.ejb.structures.services.ValeurProprieteStructureServices;
 import sn.techabiz.izipay.services.JNDIOutils;
 import sn.techabiz.izipay.services.RegistreEJB;
-import sn.techabiz.izipay.web.commons.StructureOutils;
 import sn.techabiz.izipay.web.commons.VMOutils;
 
 public class ModifierStructureVM {
@@ -69,6 +68,7 @@ public class ModifierStructureVM {
 
 	private Structure structure;
 	private boolean auto;
+	private Long id;
 
 	public List<PlageHoraire> getHoraires() {
 		return horaires;
@@ -180,10 +180,11 @@ public class ModifierStructureVM {
 		w.doModal();
 	}
 
-	@NotifyChange("structure")
+	@NotifyChange({ "structure", "parentID" })
 	@GlobalCommand
 	public void dlgClose(@BindingParam("parentID") Long parent) {
-		structure.setParent(structureServices.find(parent));
+		id = parent;
+		structure.setParent(structureServices.find(id));
 	}
 
 	@NotifyChange({ "structure", "horaires", "valeurProprieteStructures",
@@ -232,8 +233,51 @@ public class ModifierStructureVM {
 				}
 			}
 		}
+		Structure parent = new Structure();
+		if (id != null) {
+			parent = structureServices.find(id);
+			if (!parent
+					.getType()
+					.getCode()
+					.equalsIgnoreCase(structure.getType().getParent().getCode())) {
+				if (structure.getType().getCode().equalsIgnoreCase("AGENCE")
+						&& parent.getType().getCode()
+								.equalsIgnoreCase("OPERATEUR")) {
 
-		structureServices.edit(structure);
-		VMOutils.rafraichir(structure.getLibelle()+" fut modifié avec succès !");
+					Structure distributeur = new Structure();
+					distributeur.setLibelle("Dist virt");
+					distributeur.setVirtual(true);
+					distributeur.setType(structure.getType().getParent());
+					distributeur.setInternal(false);
+					distributeur.setParent(parent);
+
+					if (VMOutils.valider(structure)
+							&& VMOutils.valider(distributeur)) {
+
+						structure.setParent(distributeur);
+						structureServices.edit(structure);
+						VMOutils.rafraichir(structure.getLibelle()
+								+ " fut modifié avec succès !");
+					}
+				} else
+					Messagebox.show(" parent structure incorrect");
+
+			} else {
+
+				if (VMOutils.valider(structure)) {
+					structureServices.edit(structure);
+					VMOutils.rafraichir(structure.getLibelle()
+							+ " fut modifié avec succès !");
+				}
+
+			}
+
+		} else {
+			structureServices.edit(structure);
+			VMOutils.rafraichir(structure.getLibelle()
+					+ " fut modifié avec succès !");
+
+		}
+
 	}
 }
