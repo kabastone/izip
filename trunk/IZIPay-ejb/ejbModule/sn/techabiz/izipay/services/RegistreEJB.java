@@ -5,5 +5,5 @@ public enum RegistreEJB {
 	PaysFacade, GroupeFacade, TypeStructureFacade, StructureFacade,
 	StructParamComptableFacade, ValeurProprieteStructureFacade,
 	ProprieteStructureFacade, ParametreComptableFacade, PlageHoraireFacade,
-	ProfilFacade
+	ProfilFacade, ActionFacade
 }
