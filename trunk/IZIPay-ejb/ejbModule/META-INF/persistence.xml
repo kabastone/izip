@@ -6,12 +6,14 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/izipayDS</jta-data-source>
 		<class>sn.techabiz.izipay.ejb.structures.entities.ParametreComptable</class>
+		<class>sn.techabiz.izipay.ejb.structures.entities.PlageHoraire</class>
+		<class>sn.techabiz.izipay.ejb.structures.entities.ProprieteStructure</class>
 		<class>sn.techabiz.izipay.ejb.structures.entities.Structure</class>
 		<class>sn.techabiz.izipay.ejb.structures.entities.StructureParametreComptable</class>
 		<class>sn.techabiz.izipay.ejb.structures.entities.TypeStructure</class>
-		<class>sn.techabiz.izipay.ejb.structures.entities.PlageHoraire</class>
-		<class>sn.techabiz.izipay.ejb.structures.entities.ProprieteStructure</class>
 		<class>sn.techabiz.izipay.ejb.structures.entities.ValeurProprieteStructure</class>
+		<class>sn.techabiz.izipay.ejb.utilisateurs.entites.Profil</class>
+		<class>sn.techabiz.izipay.ejb.utilisateurs.entites.Action</class>
 		<properties>
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />

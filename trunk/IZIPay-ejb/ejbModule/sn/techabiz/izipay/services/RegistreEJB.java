@@ -4,5 +4,6 @@ public enum RegistreEJB {
 	UtilisateurFacade, CaisseFacade, AgenceFacade, BanqueFacade,
 	PaysFacade, GroupeFacade, TypeStructureFacade, StructureFacade,
 	StructParamComptableFacade, ValeurProprieteStructureFacade,
-	ProprieteStructureFacade, ParametreComptableFacade, PlageHoraireFacade
+	ProprieteStructureFacade, ParametreComptableFacade, PlageHoraireFacade,
+	ProfilFacade
 }
