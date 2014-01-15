@@ -10,7 +10,7 @@
 				<vbox>
 					<tree width="150px"
 						selectedItem="@save(vm.selected)" />
-					<button sclass="btn btn-primary btn-sm"
+					<button sclass="btn btn-primary"
 						onClick="@command('changeUrl') @global-command('updateSelected', selected=vm.selected)">
 						modifier
 					</button>
