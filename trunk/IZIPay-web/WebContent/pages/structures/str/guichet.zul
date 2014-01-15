@@ -28,7 +28,7 @@
 
 					</grid>
 					<button iconSclass="z-icon-plus"
-						zclass="btn btn-primary btn-xs" onClick="@command('ajouterStructParam')">
+						sclass="btn btn-primary btn-xs" onClick="@command('ajouterStructParam')">
 					</button>
 				</hbox>
 			</div>
@@ -72,7 +72,7 @@
 					</row>
 				</rows>
 			</grid>
-			<button zclass="btn btn-primary" onClick="@command('editStructure')">Valider</button>
+			<button sclass="btn btn-primary btn-sm" onClick="@command('editStructure')">Valider</button>
 		</vbox>
 	</div>
 </zk>

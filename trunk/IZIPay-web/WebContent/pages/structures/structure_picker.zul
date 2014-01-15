@@ -9,7 +9,7 @@
 
 			</tree>
 			<button
-				onClick="@command('save') @global-command('dlgClose', parentID=vm.selected)">
+				onClick="@command('save') @global-command('dlgClose', parentID=vm.selected)" sclass="btn btn-primary btn-xs">
 				Valider
 			</button>
 		</vbox>
