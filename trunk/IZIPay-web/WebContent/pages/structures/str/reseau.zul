@@ -112,7 +112,7 @@
 				</rows>
 			</grid>
 
-			<button zclass="btn btn-primary">Valider</button>
+			<button zclass="btn btn-primary" onClick="@command('editStructure')">Valider</button>
 		</vbox>
 	</div>
 </zk>
