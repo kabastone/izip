@@ -1,29 +1,12 @@
 <?page title="" contentType="text/html;charset=UTF-8"?>
 <zk>
-	<window>
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('mvm') @init('sn.techabiz.izipay.web.vm.MetierVM')">
 		<hbox width="1024px">
-			<tree width="128px" vflex="1" style="margin-top : 105px; border-color:white">
-				<treechildren>
-					<treeitem label="Créer"></treeitem>
-					<treeitem label="Lister"></treeitem>
-					<treeitem label="Modifier"></treeitem>
-				</treechildren>
-			</tree>
+			<tree width="128px" vflex="1"
+				style="margin-top : 105px; border-color:white" />
 			<groupbox width="896px">
-				<tabbox>
-					<tabs>
-						<tab label="Structure"/>
-						<tab label="Utilisateur"/>
-					</tabs>
-					<tabpanels>
-						<tabpanel height="600px">
-							<include src="/pages/structures/creer1.zul"/>
-						</tabpanel>
-						<tabpanel height="600px">
-							<include src="/pages/structures/lister1.zul"/>
-						</tabpanel>
-					</tabpanels>
-				</tabbox>
+				<tabbox />
 			</groupbox>
 		</hbox>
 	</window>

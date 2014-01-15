@@ -16,11 +16,11 @@ import sn.techabiz.izipay.services.JNDIOutils;
 import sn.techabiz.izipay.services.RegistreEJB;
 
 public class StructureOutils implements EventListener<Event> {
-	
+
 	private static StructureServices structureServices = (StructureServices) JNDIOutils
 			.chercheEJB(RegistreEJB.StructureFacade);
 
-	public void initTree(Tree tree, Long currentScope){
+	public void initTree(Tree tree, Long currentScope) {
 		Structure root = new Structure();
 		root = structureServices.find(currentScope);
 
@@ -34,7 +34,7 @@ public class StructureOutils implements EventListener<Event> {
 		treeitem.appendChild(new Treechildren());
 		treeitem.addEventListener(Events.ON_OPEN, this);
 	}
-	
+
 	@Override
 	public void onEvent(Event event) throws Exception {
 		Treeitem treeitem = (Treeitem) event.getTarget(), ti;
