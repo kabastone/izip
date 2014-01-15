@@ -4,7 +4,9 @@
 		viewModel="@id('mvm') @init('sn.techabiz.izipay.web.vm.MetierVM')">
 		<hbox width="1024px">
 			<tree width="128px" vflex="1"
-				style="margin-top : 105px; border-color:white" />
+				style="margin-top : 105px; border-color:white">
+				<treechildren />
+			</tree>
 			<groupbox width="896px">
 				<tabbox />
 			</groupbox>
