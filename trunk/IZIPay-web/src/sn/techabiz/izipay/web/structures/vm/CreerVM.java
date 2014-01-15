@@ -77,37 +77,55 @@ public class CreerVM {
 		structure.setInternal(auto);
 		Structure parent = new Structure();
 		if (parentID != null) {
-			parent = structureServices.find(parentID);
-			if (!parent
-					.getType()
-					.getCode()
-					.equalsIgnoreCase(structure.getType().getParent().getCode())) {
-				if (structure.getType().getCode().equalsIgnoreCase("AGENCE")
-						&& parent.getType().getCode()
-								.equalsIgnoreCase("OPERATEUR")) {
+			if (!structure.getType().getCode().equalsIgnoreCase("RESEAU")) {
+				parent = structureServices.find(parentID);
+				if (!parent
+						.getType()
+						.getCode()
+						.equalsIgnoreCase(
+								structure.getType().getParent().getCode())) {
+					if (structure.getType().getCode()
+							.equalsIgnoreCase("AGENCE")
+							&& parent.getType().getCode()
+									.equalsIgnoreCase("OPERATEUR")) {
 
-					Structure distributeur = new Structure();
-					distributeur.setLibelle("Dist virt");
-					distributeur.setVirtual(true);
-					distributeur.setType(structure.getType().getParent());
-					distributeur.setInternal(false);
-					distributeur.setParent(parent);
+						Structure distributeur = new Structure();
+						distributeur.setLibelle("Dist virt");
+						distributeur.setVirtual(true);
+						distributeur.setType(structure.getType().getParent());
+						distributeur.setInternal(false);
+						distributeur.setParent(parent);
 
+						structure.setVirtual(false);
+
+						if (VMOutils.valider(structure)
+								&& VMOutils.valider(distributeur)) {
+
+							structure.setParent(distributeur);
+							structureServices.edit(structure);
+							String msg = structure.getLibelle() + " créée";
+							VMOutils.rafraichir(msg);
+						}
+					} else
+						Messagebox.show(" parent structure incorrect");
+
+				} else {
+					structure.setParent(parent);
 					structure.setVirtual(false);
-
-					if (VMOutils.valider(structure)
-							&& VMOutils.valider(distributeur)) {
-
-						structure.setParent(distributeur);
-						structureServices.edit(structure);
+					if (VMOutils.valider(structure)) {
+						structureServices.create(structure);
 						String msg = structure.getLibelle() + " créée";
 						VMOutils.rafraichir(msg);
 					}
-				} else
-					Messagebox.show(" parent structure incorrect");
 
-			} else {
-				 structure.setParent(parent);
+				}
+			}
+			else{
+				Messagebox.show(" parent structure incorrect");
+			}
+
+		} else {
+			if (structure.getType().getCode().equalsIgnoreCase("RESEAU")) {
 				structure.setVirtual(false);
 				if (VMOutils.valider(structure)) {
 					structureServices.create(structure);
@@ -115,10 +133,9 @@ public class CreerVM {
 					VMOutils.rafraichir(msg);
 				}
 
+			} else {
+				Messagebox.show("Veuillez choisir un parent");
 			}
-
-		} else {
-			Messagebox.show("Veuillez choisir un parent");
 		}
 
 	}
@@ -140,10 +157,10 @@ public class CreerVM {
 	}
 
 	@GlobalCommand("dlgClose")
-	@NotifyChange({"parentID","structure"})
+	@NotifyChange({ "parentID", "structure" })
 	public void dlgClose(@BindingParam("parentID") Long parentID) {
+
 		this.parentID = parentID;
 
-		
 	}
 }

@@ -181,10 +181,12 @@ public class ModifierStructureVM {
 	}
 
 	@NotifyChange({ "structure", "parentID" })
-	@GlobalCommand
+	@GlobalCommand("dlgClose")
 	public void dlgClose(@BindingParam("parentID") Long parent) {
-		id = parent;
-		structure.setParent(structureServices.find(id));
+		
+			id = parent;
+			structure.setParent(structureServices.find(id));
+		
 	}
 
 	@NotifyChange({ "structure", "horaires", "valeurProprieteStructures",
@@ -235,41 +237,47 @@ public class ModifierStructureVM {
 		}
 		Structure parent = new Structure();
 		if (id != null) {
-			parent = structureServices.find(id);
-			if (!parent
-					.getType()
-					.getCode()
-					.equalsIgnoreCase(structure.getType().getParent().getCode())) {
-				if (structure.getType().getCode().equalsIgnoreCase("AGENCE")
-						&& parent.getType().getCode()
-								.equalsIgnoreCase("OPERATEUR")) {
+			if (!structure.getType().getCode().equalsIgnoreCase("RESEAU")) {
+				parent = structureServices.find(id);
+				if (!parent
+						.getType()
+						.getCode()
+						.equalsIgnoreCase(
+								structure.getType().getParent().getCode())) {
+					if (structure.getType().getCode()
+							.equalsIgnoreCase("AGENCE")
+							&& parent.getType().getCode()
+									.equalsIgnoreCase("OPERATEUR")) {
 
-					Structure distributeur = new Structure();
-					distributeur.setLibelle("Dist virt");
-					distributeur.setVirtual(true);
-					distributeur.setType(structure.getType().getParent());
-					distributeur.setInternal(false);
-					distributeur.setParent(parent);
+						Structure distributeur = new Structure();
+						distributeur.setLibelle("Dist virt");
+						distributeur.setVirtual(true);
+						distributeur.setType(structure.getType().getParent());
+						distributeur.setInternal(false);
+						distributeur.setParent(parent);
 
-					if (VMOutils.valider(structure)
-							&& VMOutils.valider(distributeur)) {
+						if (VMOutils.valider(structure)
+								&& VMOutils.valider(distributeur)) {
 
-						structure.setParent(distributeur);
+							structure.setParent(distributeur);
+							structureServices.edit(structure);
+							VMOutils.rafraichir(structure.getLibelle()
+									+ " fut modifié avec succès !");
+						}
+					} else
+						Messagebox.show(" parent structure incorrect");
+
+				} else {
+
+					if (VMOutils.valider(structure)) {
 						structureServices.edit(structure);
 						VMOutils.rafraichir(structure.getLibelle()
 								+ " fut modifié avec succès !");
 					}
-				} else
-					Messagebox.show(" parent structure incorrect");
 
-			} else {
-
-				if (VMOutils.valider(structure)) {
-					structureServices.edit(structure);
-					VMOutils.rafraichir(structure.getLibelle()
-							+ " fut modifié avec succès !");
 				}
-
+			} else {
+				Messagebox.show(" parent structure incorrect");
 			}
 
 		} else {
