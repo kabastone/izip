@@ -33,7 +33,7 @@
 						</row>
 					</template>
 				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn btn-primary"
+				<button iconSclass="z-icon-plus" zclass="btn-primary"
 					onClick="@command('ajouterPStr')">
 				</button>
 			</hbox>
@@ -67,7 +67,7 @@
 
 
 				</grid>
-				<button iconSclass="z-icon-plus" zclass="btn btn-primary"
+				<button iconSclass="z-icon-plus" zclass="btn-primary"
 					onClick="@command('ajouterStructParam')">
 				</button>
 			</hbox>

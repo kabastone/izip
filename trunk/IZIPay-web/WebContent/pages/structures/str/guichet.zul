@@ -28,7 +28,7 @@
 
 					</grid>
 					<button iconSclass="z-icon-plus"
-						zclass="btn btn-primary" onClick="@command('ajouterStructParam')">
+						zclass="btn-primary" onClick="@command('ajouterStructParam')">
 					</button>
 				</hbox>
 			</div>
