@@ -10,11 +10,9 @@
 				<vbox>
 					<tree width="150px"
 						selectedItem="@save(vm.selected)" />
-<<<<<<< .mine
+
 					<button zclass="btn-primary"
-=======
-					<button sclass="btn btn-primary"
->>>>>>> .r83
+
 						onClick="@command('changeUrl') @global-command('updateSelected', selected=vm.selected)">
 						modifier
 					</button>
