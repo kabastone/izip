@@ -61,7 +61,7 @@
 									</template>
 								</combobox>
 								<label>Valeur</label>
-								<textbox value="@bind(each.value)"></textbox>
+								<textbox value="@bind(pc.value)"></textbox>
 							</row>
 						</template>
 
