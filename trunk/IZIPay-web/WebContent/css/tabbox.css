@@ -3,12 +3,12 @@
 }
 
 .z-tab-text {
-	color: #ccffff;
+	color: #ffffff;
 	text-decoration: none;
 }
 
 .z-tab-text:hover {
-	color: #ffffff !important;
+	color: #ccffff !important;
 }
 
 .z-tab-selected .z-tab-text {
@@ -25,7 +25,7 @@
 }
 
 .z-tab-content:hover {
-	color: #ffffff !important;
+	color: #ccffff !important;
 }
 
 .z-textbox:focus {
