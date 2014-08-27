@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="GesMission-EJB">
+	    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+	    <jta-data-source>java:/GesMissionDS</jta-data-source>
+		<class>sn.pamecas.ordremission.ejb.entites.DemandeTDR</class>
+		<class>sn.pamecas.ordremission.ejb.entites.Droit</class>
+		<class>sn.pamecas.ordremission.ejb.entites.Entite</class>
+		<class>sn.pamecas.ordremission.ejb.entites.Fonction</class>
+		<class>sn.pamecas.ordremission.ejb.entites.Groupe</class>
+		<class>sn.pamecas.ordremission.ejb.entites.OrdreMission</class>
+		<class>sn.pamecas.ordremission.ejb.entites.TypeRessource</class>
+		<class>sn.pamecas.ordremission.ejb.entites.Utilisateur</class>
+		<class>sn.pamecas.ordremission.ejb.entites.ValeurRessource</class>
+		<class>sn.pamecas.ordremission.ejb.entites.Statut</class>
+		<class>sn.pamecas.ordremission.ejb.entites.Vehicule</class>
+		<class>sn.pamecas.ordremission.ejb.entites.Perdiem</class>
+		<class>sn.pamecas.ordremission.ejb.entites.Accompagnant</class>
+		<class>sn.pamecas.ordremission.ejb.entites.OrdreDecaissement</class>
+		<class>sn.pamecas.ordremission.ejb.entites.Depense</class>
+		<properties>
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence>
