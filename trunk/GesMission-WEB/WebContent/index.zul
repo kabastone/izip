@@ -1,0 +1,8 @@
+<?page title="Mission Application"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layouts/main_template.zul"?>
+<?init class="sn.pamecas.ordremission.web.ressources.authentification.AuthentificationInit" ?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css" ?>
+<zk>
+	<include id="mainInclude" self="@define(content)"
+		src="/home.zul" />
+</zk>

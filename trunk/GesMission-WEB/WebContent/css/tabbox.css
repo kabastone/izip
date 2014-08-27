@@ -1,0 +1,46 @@
+.z-tab {
+	
+}
+
+.z-tab-text {
+	color: #ccffff;
+	text-decoration: none;
+}
+
+.z-tab-text:hover {
+	color: #ffffff !important;
+}
+
+.z-tab-selected .z-tab-text {
+	background: #ffffff;
+	color: silver !important;
+}
+
+.z-tab-selected:hover {
+	color: silver !important;
+}
+
+.z-tab-content {
+	background: #428cba;
+}
+
+.z-tab-content:hover {
+	color: #ffffff !important;
+}
+
+.z-textbox:focus {
+	border-color: red !important;
+}
+
+.z-button:hover {
+	background: #d9534f !important;
+	border-color: #d9534f !important;
+	
+}
+
+.z-button:FOCUS {
+	background: #428bca !important;
+	border-color: #428bca !important;
+	color: #ffffff !important;
+	
+}

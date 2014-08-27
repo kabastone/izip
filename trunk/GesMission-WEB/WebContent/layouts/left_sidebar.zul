@@ -1,0 +1,14 @@
+<?page title="Mission - Gestion des Missions" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css" ?>
+<zk>
+	<grid hflex="1" id="fnList"
+		apply="sn.pamecas.ordremission.web.sidebar.SidebarLeftControl">
+		<columns>
+		
+		<column/>
+		</columns>
+		<rows/>
+	</grid>
+	<script type="text/javascript" src="/js/button-bs.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+</zk>

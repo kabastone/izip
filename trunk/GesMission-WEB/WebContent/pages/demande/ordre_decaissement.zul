@@ -1,0 +1,52 @@
+<?page title="Ordre de Decaissement" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<window title="Ordre de Decaissement" border="normal"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.pamecas.ordremission.web.demande.controller.OrdreDecaissementVM')"
+		closable="true">
+		<vbox>
+			<hbox>
+				<label style="font-weight:bold" value="A: SERVICE" />
+				<label sclass="label label-default"
+					value="@load(vm.ordre.serviceA)" />
+				<label style="font-weight:bold; margin-left:300px"
+					value="DATE " />
+				<label value="@load(vm.ordre.date)" />
+			</hbox>
+			<hbox>
+				<label value="DE: SERVICE" style="font-weight:bold" />
+				<label sclass="label label-default"
+					value="@load(vm.ordre.serviceD)" />
+			</hbox>
+			
+				Madame Monsieur,<n:br/> <hbox>Nous vous prions de bien vouloir nous
+				faire un décaissement d'un
+				<label style="font-weight:bold">montant de</label>
+				<label value="@load(vm.ordre.montant)"/>
+					<label style="font-weight:bold;font-size:14px"
+						value="@load(vm.montantConvertit)"  />
+				
+			</hbox>
+			<n:hr></n:hr>
+			<hbox>
+				dans le cadre du budget
+				<label sclass="label label-default"
+					value="@load(vm.ordre.budget)" />
+			</hbox>
+			<groupbox style="margin-left:50px">
+				<caption label="Nature de la dépense" />
+				<vbox children="@load(vm.ordre.depenses)">
+					<template name="children">
+						<label value="@load(each.libelle)" />
+					</template>
+				</vbox>
+			</groupbox>
+			<groupbox style="margin-left:50px">
+				<caption label="Description détaillée de la dépense " />
+				<label value="@load(vm.ordre.description)" />
+			</groupbox>
+			Sincère collaboration.
+		</vbox>
+
+	</window>
+</zk>

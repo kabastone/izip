@@ -1,0 +1,29 @@
+<?page title="Mission - Gestion des missions" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css" ?>
+
+<zk>
+	<vbox>
+		<tabbox mold="accordion" hflex="1"
+			apply="sn.pamecas.ordremission.web.sidebar.SidebarRightControl">
+			<tabs>
+				<tab>Profils</tab>
+
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+					<div class="btn-group-vertical" id="block" hflex="1" vflex="1">
+
+					</div>
+
+				</tabpanel>
+
+			</tabpanels>
+		</tabbox>
+		<button id="logout" label="Déconnexion" class="btn btn-danger"
+			if="${not sessionScope.userInfo.anonyme}"
+			apply="sn.pamecas.ordremission.web.ressources.authentification.LogoutControl"
+			hflex="1" />
+	</vbox>
+	<script type="text/javascript" src="/js/button-bs.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+</zk>

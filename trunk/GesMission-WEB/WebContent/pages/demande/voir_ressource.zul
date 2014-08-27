@@ -1,0 +1,39 @@
+<?page title="Ordre de mission" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<window title="Liste demande de ressource" border="none"
+		closable="true" height="80%" width="80%"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.pamecas.ordremission.web.demande.controller.ValiderRessourcePatrimoine')"
+		vflex="1" id="win" hflex="1">
+		<n:h4>
+			<label>Nombre de vehicule demandé :</label>
+			<label value="@load(vm.nbrVehicule)" />
+		</n:h4>
+		<hbox >
+			<grid id="lsVR" model="@load(vm.vehiculeListe)"
+				hflex="1" vflex="1" width="500px" height="300px">
+				<columns>
+					<column />
+					<column />
+					<column/>
+					<column/>
+				</columns>
+				<template name="model" var="vl">
+					<row>
+					Matricule :<textbox value="@bind(vl.matricule)" />
+					Chauffeur :	<textbox value="@bind(vl.chauffeur)" />
+					</row>
+
+				</template>
+			</grid>
+			<button iconSclass="z-icon-plus" class="btn-primary"
+				onClick="@command('ajouterVL')" />
+		</hbox>
+
+
+		<button label="Valider" onClick="@command('validerVL')" />
+		<space />
+		<button label="Annuler" onClick="@command('annulerVL')" />
+
+	</window>
+</zk>

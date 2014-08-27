@@ -1,0 +1,39 @@
+<?page title="creation ressource" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Creation Ressource" border="normal"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.pamecas.ordremission.web.demande.controller.AjouterRessource')"
+		closable="true">
+		<hbox>
+			<grid height="75px" model="@load(vm.valeurRessources)">
+				<columns>
+					<column />
+					<column />
+					<column />
+					<column />
+				</columns>
+				<template name="model" var="vr">
+					<row>
+						<label>Code</label>
+
+						<combobox model="@load(vm.listParamRes)"
+							selectedItem="@save(vr.ressource)"
+							value="@load(vr.ressource.code)">
+							<template name="model" var="ps">
+								<comboitem label="@load(ps.code)"
+									value="@load(ps)" />
+							</template>
+						</combobox>
+
+						<label>Valeur</label>
+						<textbox value="@bind(vr.valeur)" />
+					</row>
+				</template>
+			</grid>
+			<button iconSclass="z-icon-plus" class="btn-primary"
+				onClick="@command('ajouterPStr')">
+			</button>
+		</hbox>
+		<button label="ok" onClick="@command('save')" />
+	</window>
+</zk>

@@ -1,0 +1,113 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<window title="" border="normal" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.pamecas.ordremission.web.demande.controller.OrdreMission')"
+		hflex="1" vflex="1" closable="true">
+		<div align="right">
+			<image src="" />
+		</div>
+		<div style="margin-left:20px">
+			<n:h3>
+				Ordre de mission n°
+				<label value="@load(vm.demande.id)" />
+			</n:h3>
+		</div>
+		<div>
+			<n:p>
+				<div style="margin-left:20px">
+					Nous soussignés, Monsieur Mamadou TOURE, Directeur
+					Général de l'Union
+				</div>
+				<n:br />
+				des mutuelles du Partenariat pour la Mobilisation de
+				l'Epargne et le Crédit au Sénégal
+				<n:br />
+				autorise par la présente :
+				<n:br />
+				- Monsieur
+				<label style="font-weight : bold"
+					value="@load(vm.demande.utilisateur.prenom) " />
+				<label style="font-weight : bold"
+					value="@load(vm.demande.utilisateur.nom) " />
+				,
+				<label style="font-weight : bold"
+					value="@load(vm.demande.utilisateur.fonction.libelle) " />
+				;
+				<n:br />
+				à se rendre en mission à,
+				<label style="font-weight : bold"
+					value="@load(vm.demande.lieu)" />
+				,
+				<n:br />
+				du
+				<label style="font-weight : bold"
+					value="@load(vm.demande.dateDeb)" />
+				au
+				<label style="font-weight : bold"
+					value="@load(vm.demande.dateFin)" />
+				, dans le cadre :
+				<label style="font-weight : bold"
+					value="@load(vm.demande.objet)" />
+
+
+
+				<n:br />
+				<n:br />
+				<n:br />
+				Il sera à bord du/des vehicule(s)
+				<hbox children="@load(vm.vehicule)">
+					<template name="children">
+						<label value="@load(each.matricule)"
+							style="font-weight : bold" />
+					</template>
+				</hbox>
+				conduit(s) par Monsieur
+				<hbox children="@load(vm.vehicule)">
+					<template name="children">
+						<label style="font-weight : bold"
+							value="@load(each.chauffeur)" />
+					</template>
+				</hbox>
+				<n:br />
+				<n:br />
+				<n:br />
+				<div style="margin-left:20px">
+					Ce présent ordre est délivré pour servir et valoir
+					ce que de droit.
+				</div>
+				<n:br />
+				<n:br />
+
+				<hbox style="margin-top : 20px">
+
+					<vbox pack="left" align="end">
+						Visa :
+						<label value="DRH"
+							style="font-weight : bold; margin-left:20px" />
+						<label value="@bind(vm.demande.signatureDRH)"
+							style="font-weight : bold" />
+					</vbox>
+
+					<div align="right" style="margin-left:200px">
+						Fait à Dakar le,
+						<label value="@load(vm.date)" />
+						<vbox pack="right" align="end">
+							<label value="Le Directeur Général"
+								style="font-weight : bold" />
+							<label value="Mamadou TOURE"
+								style="font-weight : bold" />
+							<label value="@load(vm.demande.signatureDGA)"
+								style="font-weight : bold" />
+						</vbox>
+					</div>
+				</hbox>
+			</n:p>
+		</div>
+		<separator />
+		<spreadsheet src="@load(vm.urlFichier)" maxrows="100"
+			maxcolumns="100" width="100%" height="400px" />
+		<button label="Signer" onClick="@command('signature')" />
+		<button label="Signer par ordre"
+			onClick="@command('signatureParOrdre')" />
+	</window>
+</zk>

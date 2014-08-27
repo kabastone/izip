@@ -1,0 +1,20 @@
+<?page title="Mission - Application" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<vbox align="center" hflex="1" vflex="1">
+		<borderlayout width="1024px" height="720px">
+			<north height="15%" border="none"
+				apply="sn.pamecas.ordremission.web.ressources.authentification.LogoutControl">
+
+
+			</north>
+
+			<center border="none" self="@insert(content)">
+
+			</center>
+
+			<south height="5%" border="none">
+
+			</south>
+		</borderlayout>
+	</vbox>
+</zk>

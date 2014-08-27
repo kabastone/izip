@@ -1,0 +1,29 @@
+<?page title="Liste  vehicules" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Liste vehicules" border="none"
+		closable="true" height="80%" width="80%"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.pamecas.ordremission.web.demande.controller.ListeRessourcePatrimoine')"
+		vflex="1" id="win" hflex="1">
+
+			<grid id="lsVR" model="@load(vm.vehiculeModel)" hflex="1"
+				vflex="1" width="500px" height="300px">
+				<columns>
+					<column />
+					<column />
+					<column />
+					<column />
+				</columns>
+				<template name="model" var="vl">
+					<row>
+						Matricule :
+						<label value="@bind(vl.matricule)" />
+						Chauffeur :
+						<label value="@bind(vl.chauffeur)" />
+					</row>
+
+				</template>
+			</grid>
+
+	</window>
+</zk>

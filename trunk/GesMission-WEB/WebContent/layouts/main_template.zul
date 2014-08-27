@@ -1,0 +1,23 @@
+<?page title="Mission - Gestion des missions" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<borderlayout if="${not sessionScope.userInfo.anonyme}"
+		apply="sn.pamecas.ordremission.web.outils.BookmarkChangeController">
+		<north size="15%">
+			<include src="/layouts/banner.zul"></include>
+		</north>
+		<west title="Menu" size="15%">
+			<include src="/layouts/left_sidebar.zul"></include> 
+		</west>
+		<center border="none" flex="true" self="@insert(content)"></center>
+		<east  size="15%">
+		
+			<include src="/layouts/right_sidebar.zul"></include>
+		</east>
+		<south size="5%">
+			<include src="/layouts/footer.zul"></include>
+		</south>
+	</borderlayout>
+	<div if="${sessionScope.userInfo.anonyme}">
+		Redirect to login page.....
+	</div>
+</zk>

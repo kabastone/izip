@@ -1,0 +1,17 @@
+<?page title="Details TDR" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<window title="Details TDR" border="normal"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.pamecas.ordremission.web.demande.controller.DetailsRessource')"
+		vflex="1" hflex="1" closable="true">
+		<vbox>
+			<hlayout>
+			<a href="@load(vm.urlFichier)" label="Telecharger Fichier Frais"/>
+			</hlayout>
+
+			<div align="right" hflex="1" vflex="1">
+				<button onClick="@command('genererOM')" label="Valider" />
+			</div>
+		</vbox>
+	</window>
+</zk>

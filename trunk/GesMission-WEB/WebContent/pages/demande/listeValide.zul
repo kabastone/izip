@@ -1,0 +1,58 @@
+<?page title="Liste TDR validés" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Liste TDR validés" border="normal"
+		apply="sn.pamecas.ordremission.web.demande.controller.ListeDemandeValide"
+		height="100%">
+		<borderlayout height="100%">
+			<north>
+
+				<actionbar>
+					<actionbutton action="CREER_DEMANDE"
+						hideMode="disable" label="Ajouter" id="ajouter"
+						image="/images/add.png" />
+					<space />
+					<actionbutton action="MODIFIER_DEMANDE" hideMode=""
+						label="Modifier" id="modifier" image="/images/disk.png" />
+					<space />
+					<actionbutton action="SUPPRIMER_DEMANDE" hideMode=""
+						label="Supprimer" id="supprimer" image="/images/delete.png" />
+
+					<space />
+					<actionbutton action="VOIR_DEMANDE"
+						hideMode="disable" label="Voir" id="voir"
+						image="/images/view.png" />
+					<actionbutton action="VOIR_ORDRE" hideMode="disable"
+						label="Voir ordre de décaissement" id="voirOrdre"
+						image="/images/view.png" />
+				</actionbar>
+
+			</north>
+			<center>
+				<listbox id="listDemande"
+					emptyMessage="Aucune mission n'est enregistrée ">
+					<listhead>
+						<listheader label="Nom" />
+						<listheader label="Prenom" />
+						<listheader label="Lieu mission" />
+						<listheader label="Objet" />
+						<listheader label="Date debut" />
+						<listheader label="Date fin" />
+
+
+					</listhead>
+					<template name="model">
+						<listitem>
+							<listcell label="${each.utilisateur.nom }" />
+							<listcell
+								label="${each.utilisateur.prenom }" />
+							<listcell label="${each.lieu }" />
+							<listcell label="${each.objet }" />
+							<listcell label=" ${each.dateDeb }" />
+							<listcell label="${each.dateFin }" />
+						</listitem>
+					</template>
+				</listbox>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

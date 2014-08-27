@@ -1,0 +1,49 @@
+<?page title="Modifier TDR" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Modifier TDR" border="normal"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('sn.pamecas.ordremission.web.demande.controller.ModifierVM')"
+		closable="true">
+		<grid>
+			<columns>
+				<column />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label>Lieu Mission</label>
+					<textbox value="@bind(vm.txtLieu)" />
+				</row>
+				<row>
+					<label>Objet</label>
+					<textbox value="@bind(vm.txtObjet)" />
+				</row>
+				<row>
+					<label>Date debut</label>
+					<textbox value="@bind(vm.dateDeb)" />
+				</row>
+				<row>
+					<label>Date Fin</label>
+					<textbox value="@bind(vm.dateFin)" />
+				</row>
+
+				<row>
+					<label>Joindre fichier frais</label>
+					<button label="Joindre"
+						onUpload="@command('ajouterFrais')" upload="true" />
+				</row>
+				<row>
+					<label>Vehicule</label>
+					<checkbox onCheck="@command('vehiculeOK')" />
+				</row>
+			</rows>
+		</grid>
+
+		<separator />
+
+		<div align="right" hflex="1" vflex="1">
+			<button label="Valider" onClick="@command('save')" />
+		</div>
+
+	</window>
+</zk>
