@@ -1,0 +1,52 @@
+<?page title="Dossier Medical" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Dossier Medical" border="normal">
+		<vbox vflex="1">
+			<grid hflex="min">
+				<columns>
+					<column />
+					<column />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						Patient
+						<textbox></textbox>
+						<button>Rechercher</button>
+					</row>
+
+				</rows>
+			</grid>
+			<listbox>
+				<listhead>
+					<listheader label="Nom" />
+					<listheader label="Prenom" />
+					<listheader label="Age"></listheader>
+					<listheader label="Adresse"></listheader>
+
+				</listhead>
+				<listitem>
+					<listcell>Sar</listcell>
+					<listcell>Kader</listcell>
+					<listcell>20</listcell>
+					<listcell>dieuppeul</listcell>
+				</listitem>
+				<listitem>
+					<listcell>Blanche</listcell>
+					<listcell>Simone</listcell>
+					<listcell>20</listcell>
+					<listcell>dieuppeul</listcell>
+				</listitem>
+				<listitem>
+					<listcell>coly</listcell>
+					<listcell>Pierre David</listcell>
+					<listcell>20</listcell>
+					<listcell>dieuppeul</listcell>
+				</listitem>
+			</listbox>
+
+		</vbox>
+
+
+	</window>
+</zk>

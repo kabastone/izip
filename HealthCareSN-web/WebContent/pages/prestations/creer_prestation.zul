@@ -1,0 +1,83 @@
+<?page title="Prestations" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Prestations" border="normal">
+		<hbox>
+			<groupbox>
+				<caption label="Prestations ou Services"></caption>
+				<grid hflex="min">
+					<columns>
+						<column />
+						<column />
+					</columns>
+					<rows>
+						<row>
+							Libelle :
+							<textbox />
+						</row>
+						<row>
+							Montant :
+							<textbox />
+						</row>
+
+<row>
+							Forfait 30jrs :
+							<textbox />
+						</row>
+
+					</rows>
+
+				</grid>
+				<button label="Ajouter" id="btnajouter"></button>
+			</groupbox>
+
+
+
+			<groupbox>
+				<caption label="Liste des prestations ou services" />
+				Libelle Prestation :
+				<textbox></textbox>
+				<button>Rechercher</button>
+				<separator />
+				<listbox>
+					<listhead>
+						<listheader label="Libelle" />
+						<listheader label="Montant" />
+						<listheader label="Forfait 30jrs" />
+					</listhead>
+					<listitem>
+						<listcell label="Hospitalisation A/jr" />
+						<listcell label="10000" />
+						<listcell label="250000" />
+					</listitem>
+					<listitem>
+						<listcell
+							label="Hospitalisation Domicile catégorie A" />
+						<listcell label="75000" />
+						<listcell label="50000" />
+					</listitem>
+					<listitem>
+						<listcell
+							label="Hospitalisation Domicile catégorie B" />
+						<listcell label="150000" />
+						<listcell label="100000" />
+					</listitem>
+					<listitem>
+						<listcell label="Consultation Simple" />
+						<listcell label="10000" />
+						<listcell label="" />
+					</listitem>
+					<listitem>
+						<listcell label="Consultation Domicile" />
+						<listcell label="25000" />
+						<listcell label="" />
+					</listitem>
+					<listitem>
+						<listcell label="Transport ambulance" />
+						<listcell label="10000" />
+						<listcell label="" />
+					</listitem>
+				</listbox>
+			</groupbox>
+		</hbox>
+	</window>
+</zk>

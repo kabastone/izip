@@ -1,0 +1,134 @@
+<?page title="Details Dossier Medical" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Details Dossier Medical" border="normal">
+		<hbox>
+			Dossier Médical N°
+			<label>000146</label>
+		</hbox>
+		<button label="Nouveau"></button>
+		<hbox>
+
+			<groupbox hflex="min">
+				<caption label="Détails patient"></caption>
+				<grid>
+					<columns>
+						<column />
+						<column />
+					</columns>
+					<rows>
+						<row>
+							<label>Nom :</label>
+							<label>TALL</label>
+
+						</row>
+						<row>
+							<label>Prénom :</label>
+							<label>Mareme</label>
+						</row>
+						<row>
+							<label>Age :</label>
+							<label>9</label>
+						</row>
+						<row>
+
+							<label>Sexe :</label>
+							<label>F</label>
+						</row>
+						<row>
+							<label>Adresse :</label>
+							<label>Cite Fadia</label>
+						</row>
+						<row>
+							<label>Tel fixe :</label>
+							<label>XXXXXXXX</label>
+						</row>
+						<row>
+
+							<label>Tel portable :</label>
+							<label>XXXXXXXX</label>
+						</row>
+						<row>
+							<label>Date 1ère consultation :</label>
+							<label>20-06-2015</label>
+						</row>
+					</rows>
+				</grid>
+				<groupbox>
+					<caption label="Contact"></caption>
+					<grid>
+						<columns>
+							<column />
+							<column />
+						</columns>
+						<rows>
+							<row>
+								<label>Personne à contacter :</label>
+								<label>Kader Sarr</label>
+							</row>
+							<row>
+								<label>Adresse :</label>
+								<label>dieuppeul</label>
+							</row>
+							<row>
+								<label>Tel fixe :</label>
+								<label>xxxxxxxx</label>
+							</row>
+							<row>
+								<label>Tel portable :</label>
+								<label>xxxxxxxx</label>
+							</row>
+						</rows>
+					</grid>
+				</groupbox>
+			</groupbox>
+			<groupbox hflex="1" vflex="1">
+				<caption label="Observations"></caption>
+
+				<textbox rows="32" cols="100" />
+
+				<hlayout>
+					<button label="Enregistrer"></button>
+					<button label="Modifier"></button>
+				</hlayout>
+
+			</groupbox>
+
+			<groupbox hflex="min">
+				<caption label="Liste des Dossier Medical"></caption>
+
+				<grid>
+
+					<columns>
+						<column label="N° dossier" />
+						<column label="Date création" />
+					</columns>
+					<rows>
+						<row>
+							<label>001257</label>
+							<label>05/05/2015</label>
+						</row>
+						<row>
+							<label>001257</label>
+							<label>05/05/2015</label>
+						</row>
+						<row>
+							<label>001257</label>
+							<label>05/05/2015</label>
+						</row>
+						<row>
+							<label>001257</label>
+							<label>05/05/2015</label>
+						</row>
+						<row>
+							<label>001257</label>
+							<label>05/05/2015</label>
+						</row>
+					</rows>
+				</grid>
+				<button label="Consulter"></button>
+			</groupbox>
+		</hbox>
+
+
+	</window>
+</zk>

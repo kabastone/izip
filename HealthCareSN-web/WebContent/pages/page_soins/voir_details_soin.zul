@@ -1,0 +1,126 @@
+<?page title="Vue dossier soin" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Vue dossier soin" border="normal" closable="true">
+		<vbox>
+			<groupbox hflex="min" vflex="min">
+				<caption label="Habitudes alimentaires" />
+				<grid hflex="min">
+					<columns>
+						<column label="" />
+						<column label="" />
+						<column label="" />
+						<column label="" />
+						<column label="" />
+						<column label="" />
+						<column label="" />
+						<column label="" />
+						<column label="" />
+						<column label="" />
+						<column label="" />
+					</columns>
+					<rows>
+						<row>
+							Petit déjeuner :
+							<textbox cols="30" />
+							Déjeuner :
+							<textbox cols="30" />
+						</row>
+						<row>
+							Diner :
+							<textbox cols="30" />
+							Collation :
+							<textbox cols="30" />
+						</row>
+
+						<row>
+							Préférences :
+							<textbox cols="30" />
+							Aversions :
+							<textbox cols="30" />
+						</row>
+
+						<row>
+							Allergies :
+							<textbox cols="30" />
+							Régimes ou interdits :
+							<textbox cols="30" />
+						</row>
+						<row>
+							Préférences :
+							<textbox cols="30" />
+							Autres :
+							<textbox cols="30" />
+						</row>
+
+					</rows>
+				</grid>
+			</groupbox>
+			<groupbox hflex="min" vflex="min">
+				<caption label="Occupations favorites" />
+				<grid hflex="min">
+					<columns>
+						<column />
+						<column />
+						<column />
+						<column />
+					</columns>
+					<rows>
+						<row>
+							Journaux :
+							<textbox />
+							radio :
+							<textbox />
+						</row>
+						<row>
+							Télé :
+							<textbox />
+							autres :
+							<textbox />
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+			<groupbox hflex="min" vflex="min">
+				<caption label="Apparence et soins personnels" />
+				<grid hflex="min">
+					<columns>
+						<column label="" />
+						<column label="" />
+					</columns>
+					<rows>
+						<row>
+							Douche :
+							<combobox>
+								<comboitem label="journalière" />
+								<comboitem label="un jour sur deux" />
+								<comboitem label="bi hebdomadaire" />
+								<comboitem label="hebdomadaire" />
+							</combobox>
+						</row>
+						<row>
+							Rasage tete :
+							<checkbox />
+						</row>
+						<row>
+							Rasage barbe :
+							<checkbox />
+						</row>
+						<row>
+							Pédicure manicure :
+							<checkbox />
+						</row>
+						<row>
+							Tresses :
+							<checkbox />
+						</row>
+						<row align="right">
+							<button label="Enregistrer" />
+						</row>
+					</rows>
+
+				</grid>
+			</groupbox>
+
+		</vbox>
+	</window>
+</zk>

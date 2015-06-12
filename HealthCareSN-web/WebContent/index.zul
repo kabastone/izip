@@ -1,0 +1,7 @@
+<?page title="Index"?>
+<?init class="sn.maadji.healthcare.web.authentification.AuthentificationInit" ?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/main_template.zul"?>
+<zk>
+<include id="mainInclude" self="@define(content)"
+		src="/home.zul" />
+</zk>

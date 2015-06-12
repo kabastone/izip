@@ -1,0 +1,268 @@
+<?page title="Vue dossier soins" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Vue dossier soins" border="normal" closable="true">
+		<hbox>
+
+			<vbox>
+
+				<groupbox>
+					<caption label="Détails soins"></caption>
+					<grid>
+						<columns>
+							<column label="Dates" hflex="min" />
+							<column label="Heure" />
+							<column label="TA" />
+							<column label="POULS" />
+							<column label="T°" />
+							<column label="DIURESE" />
+							<column label="GC" />
+							<column label="TRAITEMENT" />
+							<column label="POSITION" />
+							<column label="OBSERVATIONS" />
+						</columns>
+						<rows>
+							<row>
+								<label value="28/05/15" />
+
+
+								<label value="19:30" />
+
+
+								<label value="10" />
+
+
+								<label value="90" />
+
+
+								<label value="32°" />
+
+
+								<label value="30" />
+
+
+								<label value="GC" />
+
+
+								<label value="BAR" />
+
+
+								<label value="DD" />
+
+
+								<label value="malade......." />
+							</row>
+						</rows>
+					</grid>
+					Voir plus...
+				</groupbox>
+
+				<groupbox>
+					<caption label="Médications"></caption>
+					<grid>
+						<columns>
+							<column label="N° d'ordre" />
+							<column label="Médicaments" />
+							<column label="Posologie" />
+							<column label="Durée" />
+							<column label="Date début" />
+							<column label="Date Fin" />
+							<column label="Prescripteur" />
+						</columns>
+						<rows>
+							<row>
+								<label value="1" />
+								<label value="CA C1000" />
+								<label value="1/jr" />
+								<label value="1 semaine" />
+								<label value="02/05/2015" />
+								<label value="09/05/2015" />
+								<label value="Mr Kader Sarr" />
+							</row>
+							<row>
+								<label value="1" />
+								<label value="CA C1000" />
+								<label value="1/jr" />
+								<label value="1 semaine" />
+								<label value="02/05/2015" />
+								<label value="09/05/2015" />
+								<label value="Mr Kader Sarr" />
+							</row>
+							<row>
+								<label value="1" />
+								<label value="CA C1000" />
+								<label value="1/jr" />
+								<label value="1 semaine" />
+								<label value="02/05/2015" />
+								<label value="09/05/2015" />
+								<label value="Mr Kader Sarr" />
+							</row>
+							<row>
+								<label value="1" />
+								<label value="CA C1000" />
+								<label value="1/jr" />
+								<label value="1 semaine" />
+								<label value="02/05/2015" />
+								<label value="09/05/2015" />
+								<label value="Mr Kader Sarr" />
+							</row>
+							<row>
+								<label value="1" />
+								<label value="CA C1000" />
+								<label value="1/jr" />
+								<label value="1 semaine" />
+								<label value="02/05/2015" />
+								<label value="09/05/2015" />
+								<label value="Mr Kader Sarr" />
+							</row>
+							<row>
+								<label value="1" />
+								<label value="CA C1000" />
+								<label value="1/jr" />
+								<label value="1 semaine" />
+								<label value="02/05/2015" />
+								<label value="09/05/2015" />
+								<label value="Mr Kader Sarr" />
+							</row>
+							<row>
+								<label value="1" />
+								<label value="CA C1000" />
+								<label value="1/jr" />
+								<label value="1 semaine" />
+								<label value="02/05/2015" />
+								<label value="09/05/2015" />
+								<label value="Mr Kader Sarr" />
+							</row>
+							<row>
+								<label value="1" />
+								<label value="CA C1000" />
+								<label value="1/jr" />
+								<label value="1 semaine" />
+								<label value="02/05/2015" />
+								<label value="09/05/2015" />
+								<label value="Mr Kader Sarr" />
+							</row>
+							<row>
+								<label value="1" />
+								<label value="CA C1000" />
+								<label value="1/jr" />
+								<label value="1 semaine" />
+								<label value="02/05/2015" />
+								<label value="09/05/2015" />
+								<label value="Mr Kader Sarr" />
+							</row>
+							<row>
+								<label value="1" />
+								<label value="CA C1000" />
+								<label value="1/jr" />
+								<label value="1 semaine" />
+								<label value="02/05/2015" />
+								<label value="09/05/2015" />
+								<label value="Mr Kader Sarr" />
+							</row>
+						</rows>
+					</grid>
+					Voir plus....
+				</groupbox>
+			</vbox>
+			<vbox>
+
+				<groupbox>
+					<caption label="Eliminations"></caption>
+					<grid>
+						<columns>
+							<column label="Date" />
+							<column label="Selles" />
+
+							<column label="Apport hydrique totaux" />
+							<column label="Urines à 06H" />
+						</columns>
+						<rows>
+							<row>
+								<label value="28/05/2015" />
+								<label value="Oui à 10h" />
+								<label value="50" />
+								<label value="32" />
+							</row>
+
+
+							<row>
+								<label value="28/05/2015" />
+								<label value="Oui à 10h" />
+								<label value="50" />
+								<label value="32" />
+							</row>
+
+
+							<row>
+								<label value="28/05/2015" />
+								<label value="Oui à 10h" />
+								<label value="50" />
+								<label value="32" />
+							</row>
+						</rows>
+
+					</grid>
+					Voir plus
+				</groupbox>
+
+				<groupbox>
+					<caption label="Evaluation gérontologique" />
+					<grid hflex="min">
+						<columns>
+							<column label="" />
+							<column label="" />
+						</columns>
+						<rows>
+							<row>
+								MASE
+								<label value="32" />
+							</row>
+							<row>
+								Test du Sénégal
+								<label value="32" />
+							</row>
+							<row>
+								RNA
+								<label value="32" />
+							</row>
+							<row>
+								SEGA
+								<label value="32" />
+							</row>
+							<row>
+								GDS
+								<label value="32" />
+							</row>
+							<row>
+								ZARIT
+								<label value="32" />
+							</row>
+							<row>
+								WATER LOW
+								<label value="32" />
+							</row>
+							<row>
+								GET UP AND GO
+								<label value="32" />
+							</row>
+							<row>
+								MNA
+								<label value="32" />
+							</row>
+							<row>
+								MMSE
+								<label value="32" />
+							</row>
+							<row>
+								CAM
+								<label value="32" />
+							</row>
+						</rows>
+					</grid>
+					<separator></separator>
+					Voir plus....
+				</groupbox>
+			</vbox>
+		</hbox>
+	</window>
+</zk>

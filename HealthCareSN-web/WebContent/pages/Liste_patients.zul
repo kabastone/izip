@@ -1,0 +1,118 @@
+<?page title="Liste des Patients" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Liste des Patients" border="normal">
+		<grid hflex="min">
+			<columns>
+				<column />
+				<column />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					Patient
+					<textbox></textbox>
+					<button>Rechercher</button>
+				</row>
+
+			</rows>
+		</grid>
+		<hbox>
+			<groupbox>
+				<caption label="Liste des patients à Domicile" />
+				<grid>
+					<columns>
+						<column label="Nom" width="100px" />
+						<column label="Prenom" />
+
+						<column label="Age" />
+						<column label="Naissance" />
+					</columns>
+					<rows>
+						<row>
+							<label value="Ndoye" />
+							<label value="Seynabou" />
+							<label value="33" />
+							<label value="12/10/1982" />
+						</row>
+						<row>
+							<label value="Ndoye" />
+							<label value="Seynabou" />
+							<label value="33" />
+							<label value="12/10/1982" />
+						</row>
+						<row>
+							<label value="Ndoye" />
+							<label value="Seynabou" />
+							<label value="33" />
+							<label value="12/10/1982" />
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+			<groupbox>
+				<caption label="Liste des patients Interne" />
+				<grid>
+					<columns>
+						<column label="Nom" width="100px" />
+						<column label="Prenom" />
+
+						<column label="Age" />
+						<column label="Naissance" />
+					</columns>
+					<rows>
+						<row>
+							<label value="Ndoye" />
+							<label value="Seynabou" />
+							<label value="33" />
+							<label value="12/10/1982" />
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+			<groupbox>
+				<caption label="Liste des patients Transférer " />
+				<grid>
+					<columns>
+						<column label="Nom" width="100px" />
+						<column label="Prenom" />
+
+						<column label="Age" />
+						<column label="Naissance" />
+					</columns>
+					<rows>
+						<row>
+							<label value="Ndoye" />
+							<label value="Seynabou" />
+							<label value="33" />
+							<label value="12/10/1982" />
+						</row>
+						<row>
+							<label value="Ndoye" />
+							<label value="Seynabou" />
+							<label value="33" />
+							<label value="12/10/1982" />
+						</row>
+					</rows>
+				</grid>
+			</groupbox>
+		</hbox>
+		<grid>
+			<columns>
+				<column />
+				<column />
+				<column />
+			</columns>
+			<rows>
+
+				<row spans="2" align="right">
+					<hlayout>
+
+						<button label="Dossier Médical" />
+						<button label="Dossier Administratif" />
+						<button label="Dossier Soins" />
+					</hlayout>
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

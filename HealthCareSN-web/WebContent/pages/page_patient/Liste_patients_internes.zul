@@ -1,0 +1,55 @@
+<?page title="Liste des Patients Internes" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Liste des Patients Internes" border="normal"
+		apply="sn.maadji.healthcare.web.listepatientdomicile.ListePatientInterneControl"
+		height="100%">
+		<borderlayout height="100%" id="wind">
+			<north vflex="1">
+
+				<hbox>
+					<toolbarbutton label="Dossier administratif"
+						id="dossieradmin" image="/images/add.png" />
+					<space />
+					<toolbarbutton label="Dossier medicale"
+						id="dossiermed" image="/images/add.png" />
+					<space />
+					<toolbarbutton label="Dossier soin"
+						id="dossiersoins" image="/images/add.png" />
+					<space />
+					<toolbarbutton label="Profil patient"
+						id="profilPatient" image="/images/add.png" />
+
+
+				</hbox>
+
+			</north>
+			<center>
+				<groupbox>
+					<caption label="Liste Interne" />
+					Patient :
+					<textbox></textbox>
+					<button>Rechercher</button>
+					<separator />
+					<listbox>
+						<listhead>
+							<listheader label="Nom" width="100px" />
+							<listheader label="Prenom" />
+
+							<listheader label="Age" />
+							<listheader label="Naissance" />
+						</listhead>
+
+						<listitem>
+							<listcell label="Ndoye" />
+							<listcell label="Seynabou" />
+							<listcell label="33" />
+							<listcell label="12/10/1982" />
+						</listitem>
+
+					</listbox>
+				</groupbox>
+
+			</center>
+		</borderlayout>
+	</window>
+</zk>

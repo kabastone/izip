@@ -1,0 +1,25 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/layout/anonyme_template.zul"?>
+<zk>
+	<window title="Authentification" border="normal" hflex="min"
+		self="@define(content)"
+		apply="sn.maadji.healthcare.web.authentification.LoginControl"
+		id="loginWin">
+		<groupbox hflex="min">
+			<caption>
+				Authentifiez-vous pour utiliser l'application
+			</caption>
+			<vbox width="300px" align="center" pack="center">
+				<textbox placeholder="Identifiant" width="250px"
+					id="account">
+				</textbox>
+				<textbox placeholder="Mot de passe" type="password"
+					width="250px" id="password">
+				</textbox>
+				<label width="250px"></label>
+				<button width="250px" id="login">Connexion</button>
+			</vbox>
+			<label id="message" />
+		</groupbox>
+	</window>
+</zk>

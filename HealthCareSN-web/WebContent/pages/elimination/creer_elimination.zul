@@ -1,0 +1,43 @@
+<?page title="Elimination" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Elimination" border="normal" closable="true">
+	<hbox>
+			Dossier Soins N°
+			<label>000178</label>
+		</hbox>
+		<grid>
+			<columns>
+				<column label="Date" width="100px" />
+				<column label="Selles" />
+
+				<column label="Apport hydrique totaux" />
+				<column label="Urines à 06H" />
+			</columns>
+			<rows>
+				<row><label value="28/05/2015" />
+				<label value="Oui à 10h" />
+				<label value="50" />
+				<label value="32" />
+				</row>
+			
+			
+				<row><label value="28/05/2015" />
+				<label value="Oui à 10h" />
+				<label value="50" />
+				<label value="32" />
+				</row>
+			
+			
+				<row><label value="28/05/2015" />
+				<label value="Oui à 10h" />
+				<label value="50" />
+				<label value="32" />
+				</row>
+			</rows>
+		</grid>
+		<groupbox> 
+		<caption label="Saisir valeurs"/>
+		<hbox>Selles : <textbox /> Apports hydriques totaux : <textbox /> Urines à 06h: <textbox /> <button label="Ajouter"  /></hbox>
+		</groupbox>
+	</window>
+</zk>

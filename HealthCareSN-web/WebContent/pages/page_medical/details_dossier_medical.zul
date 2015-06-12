@@ -1,0 +1,62 @@
+<?page title="Details Dossier Medical" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Details Dossier Medical" border="normal" closable="true">
+		<hbox>
+			Dossier Médical N°
+			<label>000146</label>
+		</hbox>
+		<button label="Nouveau"></button>
+		<hbox>
+
+
+			<groupbox hflex="1" vflex="1">
+				<caption label="Observations"></caption>
+
+				<textbox rows="32" cols="100" />
+
+				<hlayout>
+					<button label="Enregistrer"></button>
+					<button label="Modifier"></button>
+				</hlayout>
+
+			</groupbox>
+
+			<groupbox hflex="min">
+				<caption label="Liste des Dossier Medical"></caption>
+
+				<grid>
+
+					<columns>
+						<column label="N° dossier" />
+						<column label="Date création" />
+					</columns>
+					<rows>
+						<row>
+							<label>001257</label>
+							<label>05/05/2015</label>
+						</row>
+						<row>
+							<label>001257</label>
+							<label>05/05/2015</label>
+						</row>
+						<row>
+							<label>001257</label>
+							<label>05/05/2015</label>
+						</row>
+						<row>
+							<label>001257</label>
+							<label>05/05/2015</label>
+						</row>
+						<row>
+							<label>001257</label>
+							<label>05/05/2015</label>
+						</row>
+					</rows>
+				</grid>
+				<button label="Consulter"></button>
+			</groupbox>
+		</hbox>
+
+
+	</window>
+</zk>

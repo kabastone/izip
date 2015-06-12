@@ -1,0 +1,56 @@
+<?page title="Dossier Soin" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Dossier Soin" border="normal" apply="sn.maadji.healthcare.web.soins.DossierSoinsControl" closable="true">
+		<hbox>
+			
+			<toolbarbutton label="Nouveau" id="nouveau" image="/images/add.png" />
+			<space/>
+			<toolbarbutton label="Détails soins" id="detailsoins" image="/images/add.png" /> 
+			<space/>
+			<toolbarbutton label="Evaluations" id="evaluations" image="/images/add.png" />
+			<space/>
+			<toolbarbutton label="Eliminations" id="eliminations" image="/images/add.png" /> 
+			<space/>
+			<toolbarbutton label="Médications" id="medications" image="/images/add.png" /> 
+			<space/>
+			<toolbarbutton label="Voir détails" id="voirDetails" image="/images/add.png" /> 
+		</hbox>
+
+		<hbox>
+			
+			<groupbox>
+				<caption label="Liste dossier soin"></caption>
+				<listbox>
+					<listhead>
+						<listheader />
+						<listheader />
+						<listheader />
+						<listheader />
+					</listhead>
+					<listitem>
+						<listcell>
+
+							<label>5248</label>
+
+						</listcell>
+						<listcell>
+							<label>06/06/2015</label>
+
+						</listcell>
+						<listcell>
+							<label>TALL</label>
+
+						</listcell>
+						<listcell>
+
+							<label>Amadou </label>
+
+						</listcell>
+					</listitem>
+
+				</listbox>
+			</groupbox>
+			
+		</hbox>
+	</window>
+</zk>

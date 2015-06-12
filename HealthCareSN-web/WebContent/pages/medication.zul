@@ -1,0 +1,148 @@
+<?page title="Medication" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Medication" border="normal">
+		<grid>
+			<columns>
+				<column label="N° d'ordre" />
+				<column label="Médicaments" />
+				<column label="Posologie" />
+				<column label="Durée" />
+				<column label="Date début" />
+				<column label="Date Fin" />
+				<column label="Prescripteur" />
+			</columns>
+			<rows>
+				<row>
+					<label value="1" />
+					<label value="CA C1000" />
+					<label value="1/jr" />
+					<label value="1 semaine" />
+					<label value="02/05/2015" />
+					<label value="09/05/2015" />
+					<label value="Mr Kader Sarr" />
+				</row>
+				<row>
+					<label value="1" />
+					<label value="CA C1000" />
+					<label value="1/jr" />
+					<label value="1 semaine" />
+					<label value="02/05/2015" />
+					<label value="09/05/2015" />
+					<label value="Mr Kader Sarr" />
+				</row>
+				<row>
+					<label value="1" />
+					<label value="CA C1000" />
+					<label value="1/jr" />
+					<label value="1 semaine" />
+					<label value="02/05/2015" />
+					<label value="09/05/2015" />
+					<label value="Mr Kader Sarr" />
+				</row>
+				<row>
+					<label value="1" />
+					<label value="CA C1000" />
+					<label value="1/jr" />
+					<label value="1 semaine" />
+					<label value="02/05/2015" />
+					<label value="09/05/2015" />
+					<label value="Mr Kader Sarr" />
+				</row>
+				<row>
+					<label value="1" />
+					<label value="CA C1000" />
+					<label value="1/jr" />
+					<label value="1 semaine" />
+					<label value="02/05/2015" />
+					<label value="09/05/2015" />
+					<label value="Mr Kader Sarr" />
+				</row>
+				<row>
+					<label value="1" />
+					<label value="CA C1000" />
+					<label value="1/jr" />
+					<label value="1 semaine" />
+					<label value="02/05/2015" />
+					<label value="09/05/2015" />
+					<label value="Mr Kader Sarr" />
+				</row>
+				<row>
+					<label value="1" />
+					<label value="CA C1000" />
+					<label value="1/jr" />
+					<label value="1 semaine" />
+					<label value="02/05/2015" />
+					<label value="09/05/2015" />
+					<label value="Mr Kader Sarr" />
+				</row>
+				<row>
+					<label value="1" />
+					<label value="CA C1000" />
+					<label value="1/jr" />
+					<label value="1 semaine" />
+					<label value="02/05/2015" />
+					<label value="09/05/2015" />
+					<label value="Mr Kader Sarr" />
+				</row>
+				<row>
+					<label value="1" />
+					<label value="CA C1000" />
+					<label value="1/jr" />
+					<label value="1 semaine" />
+					<label value="02/05/2015" />
+					<label value="09/05/2015" />
+					<label value="Mr Kader Sarr" />
+				</row>
+				<row>
+					<label value="1" />
+					<label value="CA C1000" />
+					<label value="1/jr" />
+					<label value="1 semaine" />
+					<label value="02/05/2015" />
+					<label value="09/05/2015" />
+					<label value="Mr Kader Sarr" />
+				</row>
+			</rows>
+		</grid>
+		<groupbox>
+			<caption label="Saisir valeurs" />
+			<grid hflex="min">
+				<columns>
+					<column label="" />
+					<column label="" />
+				</columns>
+				<rows>
+					<row>
+						N° d'ordre :
+						<textbox />
+					</row>
+					<row>
+						Médicaments :
+						<textbox />
+					</row>
+					<row>
+						Posologie :
+						<textbox />
+					</row>
+					<row>
+						Durée :
+						<textbox />
+					</row>
+					<row>
+						Date début :
+						<textbox />
+					</row>
+					<row>
+						Date fin :
+						<textbox />
+					</row>
+					<row>
+						Prescripteur :
+						<textbox />
+					</row>
+				</rows>
+			</grid>
+			<button label="Ajouter" onClick="" />
+		</groupbox>
+</window>
+</zk>

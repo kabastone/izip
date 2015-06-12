@@ -1,0 +1,52 @@
+<?page title="Details Patient" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Details Patient" border="normal" closable="true">
+
+		<groupbox hflex="min">
+			<caption label="Détails patient"></caption>
+			<grid>
+				<columns>
+					<column />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<label>Nom :</label>
+						<label>TALL</label>
+
+					</row>
+					<row>
+						<label>Prénom :</label>
+						<label>Mareme</label>
+					</row>
+					<row>
+						<label>Age :</label>
+						<label>9</label>
+					</row>
+					<row>
+
+						<label>Sexe :</label>
+						<label>F</label>
+					</row>
+					<row>
+						<label>Adresse :</label>
+						<label>Cite Fadia</label>
+					</row>
+					<row>
+						<label>Tel fixe :</label>
+						<label>XXXXXXXX</label>
+					</row>
+					<row>
+
+						<label>Tel portable :</label>
+						<label>XXXXXXXX</label>
+					</row>
+					<row>
+						<label>Date 1ère consultation :</label>
+						<label>20-06-2015</label>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+	</window>
+</zk>

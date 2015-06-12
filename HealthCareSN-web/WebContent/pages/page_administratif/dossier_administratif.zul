@@ -1,0 +1,69 @@
+<?page title="Dossier Administratif" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Dossier Administratif" border="normal" closable="true">
+
+		<hbox>
+			<groupbox>
+				<caption label="Infos hospitalisation" />
+				<grid>
+					<columns>
+						<column />
+						<column />
+						<column />
+						<column />
+					</columns>
+					<rows>
+						<row>
+							Date d'entrée :
+							<datebox></datebox>
+
+							Date sortie prévue :
+							<datebox></datebox>
+						</row>
+						<row>
+							Contact 1 :
+							<textbox />
+							Contact 2 :
+							<textbox />
+						</row>
+						<row>
+							Objet :
+							<textbox />
+
+
+							Observation :
+							<textbox />
+						</row>
+					</rows>
+				</grid>
+				<groupbox height="200px" hflex="min">
+					<caption label="Status"></caption>
+					<grid hflex="min">
+						<columns>
+							<column />
+							<column />
+							<column />
+							<column />
+						</columns>
+						<rows>
+							<row>
+								Lieu hospitalisation :
+								<combobox>
+									<comboitem>Domicile</comboitem>
+									<comboitem>Hopital</comboitem>
+									<comboitem>Institution</comboitem>
+								</combobox>
+								N° chambre :
+								<textbox />
+							</row>
+						</rows>
+					</grid>
+
+				</groupbox>
+				<button>Enregistrer</button>
+			</groupbox>
+		</hbox>
+
+
+	</window>
+</zk>

@@ -1,0 +1,24 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<vbox hflex="1">
+		<tabbox mold="accordion" hflex="1"
+			apply="">
+			<tabs>
+				<tab>Profils</tab>
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+					<div class="btn-group-vertical" id="block" hflex="1"
+						vflex="1">
+					</div>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+		<button id="logout" label="Déconnexion" sclass="btn btn-default"
+			if="${not sessionScope.userInfo.anonyme}"
+			apply=""
+			hflex="1" />
+	</vbox>
+	<script type="text/javascript" src="/js/button-bs.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+</zk>

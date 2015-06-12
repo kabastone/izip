@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language-addon>
+        <addon-name>lamine</addon-name>
+        <language-name>xul/html</language-name>
+        <stylesheet href="/org/css/style.css" type="text/css" />
+        <stylesheet href="/org/css/uifix.css" type="text/css" />
+        <component>
+                <extends>hbox</extends>
+                <component-name>actionbar</component-name>
+                <component-class>sn.maadji.healthcare.web.components.ActionBar</component-class>                
+        </component>       
+        <component>
+                <extends>toolbarbutton</extends>
+                <component-name>actionbutton</component-name>
+                <component-class>sn.maadji.healthcare.components.ActionButton</component-class>                
+        </component> 
+</language-addon>

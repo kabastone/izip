@@ -1,0 +1,69 @@
+<?page title="Liste des Patients à Domicile" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Liste des Patients à Domicile" border="normal"
+		height="100%" apply="sn.maadji.healthcare.web.listepatientdomicile.ListePatientDomicileControl">
+		<borderlayout height="100%" id="wind">
+			<north vflex="1">
+
+				<hbox id="toolbarBtn">
+					<!--  <toolbarbutton label="Dossier administratif"
+						id="dossierAdministratif" image="/images/add.png" />
+					<space />
+					<toolbarbutton label="Dossier medicale "
+						id="dossierMedical" image="/images/add.png" />
+					<space />
+					<toolbarbutton label="Dossier soin" id="dossierSoin"
+						image="/images/add.png" />
+					<space />
+					<toolbarbutton label="Profil patient"
+						id="profilPatient" image="/images/add.png" />-->
+
+
+				</hbox>
+
+			</north>
+			<center>
+
+				<groupbox>
+					<caption label="Liste des patients à Domicile" />
+					Patient :
+					<textbox></textbox>
+					<button>Rechercher</button>
+					<separator />
+					<listbox>
+						<listhead>
+							<listheader label="Nom" width="100px" />
+							<listheader label="Prenom" />
+
+							<listheader label="Age" />
+							<listheader label="Naissance" />
+						</listhead>
+						
+							<listitem>
+								<listcell label="Ndoye" />
+								<listcell label="Seynabou" />
+								<listcell label="33" />
+								<listcell label="12/10/1982" />
+							</listitem>
+							<listitem>
+								<listcell label="Ndoye" />
+								<listcell label="Seynabou" />
+								<listcell label="33" />
+								<listcell label="12/10/1982" />
+							</listitem>
+							<listitem>
+								<listcell label="Ndoye" />
+								<listcell label="Seynabou" />
+								<listcell label="33" />
+								<listcell label="12/10/1982" />
+							</listitem>
+
+					</listbox>
+				</groupbox>
+
+
+
+			</center>
+		</borderlayout>
+	</window>
+</zk>

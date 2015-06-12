@@ -1,0 +1,101 @@
+<?page title="Details soins" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Details soins" border="normal" closable="true">
+		<grid>
+			<columns>
+				<column label="Dates" />
+				<column label="Heure" />
+				<column label="TA" />
+				<column label="POULS" />
+				<column label="T°" />
+				<column label="DIURESE" />
+				<column label="GC" />
+				<column label="TRAITEMENT" />
+				<column label="POSITION" />
+				<column label="OBSERVATIONS" />
+			</columns>
+			<rows>
+				<row>
+					<label value="28/05/15" />
+
+
+					<label value="19:30" />
+
+
+					<label value="10" />
+
+
+					<label value="90" />
+
+
+					<label value="32°" />
+
+
+					<label value="30" />
+
+
+					<label value="GC" />
+
+
+					<label value="BAR" />
+
+
+					<label value="DD" />
+
+
+					<label value="malade......." />
+				</row>
+			</rows>
+		</grid>
+		<groupbox>
+			<caption label="Saisir valeurs" />
+			<grid hflex="min">
+				<columns>
+					<column label="" />
+					<column label="" />
+				</columns>
+				<rows>
+					<row>
+						TA :
+						<textbox />
+					</row>
+					<row>
+						POULS :
+						<textbox />
+					</row>
+					<row>
+						T° :
+						<textbox />
+					</row>
+					<row>
+						DIURESE :
+						<textbox />
+					</row>
+					<row>
+						GC :
+						<textbox />
+					</row>
+					<row>
+						TRAITEMENT :
+						<textbox />
+					</row>
+					<row>
+						POSITIONS :
+						<combobox>
+							<comboitem label="DD" />
+							<comboitem label="DV" />
+							<comboitem label="DLD" />
+							<comboitem label="DLG" />
+							<comboitem label="PA" />
+						</combobox>
+					</row>
+					<row>
+						OBSERVATIONS :
+						<textbox rows="3" />
+					</row>
+				</rows>
+			</grid>
+			<button label="Ajouter"/>
+		</groupbox>
+	</window>
+</zk>

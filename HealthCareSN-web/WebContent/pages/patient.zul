@@ -1,0 +1,104 @@
+<?page title="Patient Acceuil" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Patient Acceuil" border="normal">
+
+
+		<hbox>
+			<groupbox height="200px">
+				<caption label="Identification"></caption>
+				<grid hflex="min" height="200px">
+					<columns>
+						<column />
+						<column />
+						<column />
+						<column />
+					</columns>
+					<rows>
+						<row>
+							Nom :
+							<textbox />
+
+
+							Prénom :
+							<textbox />
+						</row>
+
+
+
+						<row>
+							Age :
+							<textbox />
+
+							Sexe :
+							<combobox>
+								<comboitem>M</comboitem>
+								<comboitem>F</comboitem>
+							</combobox>
+						</row>
+						<row>
+							Adresse :
+							<textbox width="100px" />
+
+							Téléphone Fixe :
+							<textbox />
+
+							Téléphone Mobile :
+							<textbox />
+						</row>
+						<row>
+							Situation matrimoniale :
+							<combobox>
+								<comboitem>Célibataire</comboitem>
+								<comboitem>Veuf(ve)</comboitem>
+								<comboitem>Marié(e)</comboitem>
+								<comboitem>Monogame</comboitem>
+								<comboitem>Polygame</comboitem>
+							</combobox>
+
+
+							Conjoint(es) :
+							<textbox width="100px" />
+
+						</row>
+
+
+					</rows>
+
+				</grid>
+
+			</groupbox>
+		</hbox>
+
+		<groupbox hflex="min">
+			<caption label="Contact"></caption>
+			<grid hflex="min">
+				<columns>
+					<column />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<label>Personne à contacter :</label>
+						<textbox></textbox>
+					</row>
+					<row>
+						<label>Adresse :</label>
+						<textbox></textbox>
+					</row>
+					<row>
+						<label>Tel fixe :</label>
+						<textbox></textbox>
+					</row>
+					<row>
+						<label>Tel portable :</label>
+						<textbox></textbox>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+
+		<button label="Créer patient" />
+
+
+	</window>
+</zk>

@@ -1,0 +1,66 @@
+<?page title="Evaluation" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Evaluation"  border="normal" closable="true">
+	<hbox>
+			Dossier Soins N°
+			<label>000178</label>
+		</hbox>
+		<groupbox>
+		<caption label="Evaluation gérontologique"/>
+			<grid hflex="min">
+				<columns>
+					<column label="" />
+					<column label="" />
+				</columns>
+				<rows>
+					<row>
+						MASE
+						<textbox />
+					</row>
+					<row>
+						Test du Sénégal
+						<textbox />
+					</row>
+					<row>
+						RNA
+						<textbox />
+					</row>
+					<row>
+						SEGA
+						<textbox />
+					</row>
+					<row>
+						GDS
+						<textbox />
+					</row>
+					<row>
+						ZARIT
+						<textbox />
+					</row>
+					<row>
+						WATER LOW
+						<textbox />
+					</row>
+					<row>
+						GET UP AND GO
+						<textbox />
+					</row>
+					<row>
+						MNA
+						<textbox />
+					</row>
+					<row>
+						MMSE
+						<textbox />
+					</row>
+					<row>
+						CAM
+						<textbox />
+					</row>
+				</rows>
+			</grid>
+			<separator></separator>
+			<button>Enregistrer</button>
+		</groupbox>
+	</window>
+</zk>

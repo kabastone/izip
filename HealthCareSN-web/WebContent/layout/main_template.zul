@@ -1,0 +1,25 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<borderlayout if=""
+		apply="">
+		<north size="15%">
+			<include src="/layout/banner.zul"></include>
+		</north>
+		<west size="15%">
+			<include src="/layout/left_sidebar.zul"></include>
+		</west>
+		<center border="none" flex="true" self="@insert(content)"
+			vflex="1" autoscroll="true">
+		</center>
+		<east size="15%">
+
+			<include src="/layout/right_sidebar.zul"></include>
+		</east>
+		<south size="5%">
+			<include src="/layout/footer.zul"></include>
+		</south>
+	</borderlayout>
+	<div if="">
+		Redirect to login page.....
+	</div>
+</zk>
